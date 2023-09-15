@@ -9,3 +9,7 @@ local set = vim.opt
 set.tabstop = 2
 set.shiftwidth = 2
 set.expandtab = true
+
+vim.diagnostic.config({
+  virtual_text = false,
+})

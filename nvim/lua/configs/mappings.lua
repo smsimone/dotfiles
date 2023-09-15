@@ -10,8 +10,7 @@ wk.register(
       S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Find workspace symbols" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
       r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-      d = { "", "Line error" },
-      D = { "<cmd>Telescope diagnostics<cr>", "Project diagnostics" }
+      D = { "<cmd>TroubleToggle<cr>", "Project diagnostics" }
     },
 
     -- Files config
@@ -68,3 +67,13 @@ wk.register(
   },
   { prefix = "<leader>" }
 )
+
+
+vim.keymap.set("n", "<C-h>", function() require("smart-splits").move_cursor_left() end)
+vim.keymap.set("n", "<C-j>", function() require("smart-splits").move_cursor_down() end)
+vim.keymap.set("n", "<C-k>", function() require("smart-splits").move_cursor_up() end)
+vim.keymap.set("n", "<C-l>", function() require("smart-splits").move_cursor_right() end)
+vim.keymap.set("n", "<C-Up>", function() require("smart-splits").resize_up() end)
+vim.keymap.set("n", "<C-Down>", function() require("smart-splits").resize_down() end)
+vim.keymap.set("n", "<C-Left>", function() require("smart-splits").resize_left() end)
+vim.keymap.set("n", "<C-Right>", function() require("smart-splits").resize_right() end)
