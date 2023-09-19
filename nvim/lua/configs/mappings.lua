@@ -51,7 +51,8 @@ wk.register(
     t = {
       name = "Terminal",
       f = { "<cmd>ToggleTerm direction=float<cr>", "Floating" },
-      h = { "<cmd>ToggleTerm direction=horizontal size=20<cr>", "Horizontal terminal" },
+      h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal terminal" },
+      v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical terminal" },
     },
     g = {
       name = "Git",
@@ -77,3 +78,8 @@ vim.keymap.set("n", "<C-Up>", function() require("smart-splits").resize_up() end
 vim.keymap.set("n", "<C-Down>", function() require("smart-splits").resize_down() end)
 vim.keymap.set("n", "<C-Left>", function() require("smart-splits").resize_left() end)
 vim.keymap.set("n", "<C-Right>", function() require("smart-splits").resize_right() end)
+
+
+vim.keymap.set("n", "<leader>/",
+  function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end)
+vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
