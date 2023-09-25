@@ -48,19 +48,19 @@ window:
 
 font:
   normal:
-    family: SFMono Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Medium
 
   bold:
-    family: SFMono Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Bold
 
   italic:
-    family: SFMono Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: SFMono Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Bold Italic
 
   size: 11

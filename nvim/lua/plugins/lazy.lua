@@ -8,6 +8,9 @@ return {
     end,
   },
   {
+    "liaozixin/nvim-cpptools"
+  },
+  {
     "folke/neodev.nvim",
     lazy = false,
     config = function()
