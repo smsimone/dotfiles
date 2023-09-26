@@ -323,7 +323,10 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false
+    lazy = false,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects"
+    }
   },
   {
     "folke/trouble.nvim",
