@@ -79,9 +79,9 @@ return {
         case_insensitive_regex = false,
       })
     end
-   
+
   },
-  { "liaozixin/nvim-cpptools"},
+  { "liaozixin/nvim-cpptools" },
   {
     "folke/neodev.nvim",
     lazy = false,
@@ -115,20 +115,6 @@ return {
     }
   },
   {
-    "ms-jpq/coq_nvim",
-    branch = "coq",
-    dependencies = {
-      {
-        "ms-jpq/coq.artifacts",
-        branch = "artifacts"
-      },
-      {
-        "ms-jpq/coq.thirdparty",
-        branch = "3p"
-      }
-    }
-  },
-  {
     "stevearc/oil.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     lazy = false,
@@ -147,7 +133,27 @@ return {
     tag = "0.1.3",
     dependencies = "nvim-lua/plenary.nvim"
   },
-  { "catppuccin/nvim",              name = "catppuccin", priority = 1000, lazy = false },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/nvim-cmp',
+      {
+        "L3MON4D3/LuaSnip",
+        version = "2.*",
+        build = "make install_jsregexp"
+      },
+    }
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false
+  },
   {
     'numToStr/Comment.nvim',
     config = function()

@@ -17,14 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 local lazy = require('lazy')
 lazy.setup('plugins/lazy', {})
 
-require 'plugins/completion'
 require 'plugins/dap'
+require 'plugins/completion'
 require 'plugins/lsp'
-require 'plugins/nvim-cmp'
 require 'plugins/telescope'
 require 'plugins/terminal'
 require 'plugins/treesitter'
-
 require 'configs/mappings'
 require 'configs/configurations'
 
