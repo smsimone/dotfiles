@@ -10,7 +10,7 @@ wk.register(
       S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Find workspace symbols" },
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
       r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-      D = { "<cmd>TroubleToggle<cr>", "Project diagnostics" }
+      D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Project diagnostics" },
     },
 
     -- Files config
@@ -77,3 +77,5 @@ vim.keymap.set("n", "<C-Up>", function() require("smart-splits").resize_up() end
 vim.keymap.set("n", "<C-Down>", function() require("smart-splits").resize_down() end)
 vim.keymap.set("n", "<C-Left>", function() require("smart-splits").resize_left() end)
 vim.keymap.set("n", "<C-Right>", function() require("smart-splits").resize_right() end)
+
+vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')

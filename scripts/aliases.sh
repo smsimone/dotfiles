@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias git-history="git diff-tree --no-commit-id --name-only -r "
 alias vim='nvim'
 alias gw='git worktree'
@@ -7,3 +9,4 @@ alias cd='z'
 alias l='ls -l'
 alias ll='ls -la'
 alias fastlane='bundle exec fastlane'
+alias flutter='fvm flutter'
