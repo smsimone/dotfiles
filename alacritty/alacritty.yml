@@ -48,22 +48,22 @@ window:
 
 font:
   normal:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonoLisa
     style: Medium
 
   bold:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonoLisa
     style: Bold
 
   italic:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonoLisa
     style: Italic
 
   bold_italic:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonoLisa
     style: Bold Italic
 
-  size: 11
+  size: 10
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
