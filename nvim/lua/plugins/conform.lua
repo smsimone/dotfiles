@@ -7,6 +7,7 @@ require("conform").setup({
 		typescript = { "prettierd" },
 		rust = { "rustfmt" },
 		shell = { "shellcheck" },
+		swift = { "swiftformat" },
 
 		-- Use the "_" filetype to run formatters on filetypes that don't
 		-- have other formatters configured.
