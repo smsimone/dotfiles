@@ -105,4 +105,5 @@ shell:
     - "tmux attach || tmux"
 
 import:
-  - ~/.config/alacritty/themes/themes/mountain.yaml #one_dark.yaml
+  #- ~/.config/alacritty/themes/themes/mountain.yaml #one_dark.yaml
+  - ~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml
