@@ -48,19 +48,19 @@ window:
 
 font:
   normal:
-    family: MonoLisa
+    family: SFMono Nerd Font
     style: Medium
 
   bold:
-    family: MonoLisa
+    family: SFMono Nerd Font
     style: Bold
 
   italic:
-    family: MonoLisa
+    family: SFMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: MonoLisa
+    family: SFMono Nerd Font
     style: Bold Italic
 
   size: 10
