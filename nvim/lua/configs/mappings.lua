@@ -54,11 +54,11 @@ wk.register({
 	-- Buffer configs
 	b = {
 		name = "Buffer mappings",
-		c = { "<cmd>bufdo close<cr>", "Close buffer" },
+		c = { "<cmd>BufferClose<cr>", "Close buffer" },
 		V = { "<cmd>vsplit<cr>", "VSplit" },
 		S = { "<cmd>split<cr>", "HSplit" },
-		b = { "<cmd>BufferLinePick<cr>", "Select buffer from opens" },
-		d = { "<cmd>BufferLinePickClose<cr>", "Pick buffer to close" },
+		b = { "<cmd>BufferPick<cr>", "Select buffer from opens" },
+		d = { "<cmd>BufferPickDelete<cr>", "Pick buffer to close" },
 	},
 
 	-- Terminal config

@@ -12,6 +12,37 @@ return {
 		lazy = false,
 	},
 	{
+		"someone-stole-my-name/yaml-companion.nvim",
+		dependencies = {
+			{ "neovim/nvim-lspconfig" },
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+	},
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			animation = true,
+			insert_at_start = false,
+		},
+		config = function()
+			require("barbar").setup({})
+		end,
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
 		"chrisgrieser/nvim-puppeteer",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		ft = { "python", "javascript", "typescript" },
