@@ -10,6 +10,7 @@ alias l='ls -l'
 alias ll='ls -la'
 alias fastlane='bundle exec fastlane'
 alias flutter='fvm flutter'
+alias ..='cd ..'
 
 if command -v gitlab-ci-local &> /dev/null
 then

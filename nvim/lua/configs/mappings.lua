@@ -9,7 +9,8 @@ wk.register({
 		S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Find workspace symbols" },
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-		D = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Project diagnostics" },
+		d = { "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<cr>", "Get line diagnostic" },
+		D = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
 	},
 
 	-- Files config
@@ -117,6 +118,7 @@ vim.keymap.set("n", "<C-Right>", function()
 end)
 
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 
 vim.keymap.set("n", "<leader>/", function()
 	require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)

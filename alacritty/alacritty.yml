@@ -106,4 +106,5 @@ shell:
 
 import:
   #- ~/.config/alacritty/themes/themes/mountain.yaml #one_dark.yaml
-  - ~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml
+  #- ~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml
+  - ~/.config/alacritty/themes/flexoki.yaml
