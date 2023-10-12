@@ -1,4 +1,7 @@
 return {
+	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+	-- { import = "lazyvim.plugins.extras.ui.dashboard" },
+	{ import = "plugins" },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -15,7 +18,6 @@ return {
 	{
 		"someone-stole-my-name/yaml-companion.nvim",
 		dependencies = {
-			{ "neovim/nvim-lspconfig" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope.nvim" },
 		},
@@ -125,25 +127,6 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		config = function()
-			require("mason").setup()
-		end,
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
-	},
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		dependencies = {
-			{
-				"neovim/nvim-lspconfig",
-			},
-		},
-	},
-	{
 		"stevearc/oil.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		lazy = false,
@@ -157,27 +140,6 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		lazy = false,
-		tag = "0.1.3",
-		dependencies = "nvim-lua/plenary.nvim",
-	},
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/nvim-cmp",
-			{
-				"L3MON4D3/LuaSnip",
-				version = "2.*",
-				build = "make install_jsregexp",
-			},
-		},
 	},
 	{
 		"catppuccin/nvim",
@@ -234,15 +196,20 @@ return {
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		opts = {},
-	},
-	{
-		"folke/noice.nvim",
-		lazy = false,
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
+		config = function()
+			function _G.set_terminal_keymaps()
+				local opts = { buffer = 0 }
+				vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+				vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+				vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+				vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+				vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+				vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+			end
+
+			-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+			vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -357,25 +324,7 @@ return {
 			"kristijanhusak/vim-dadbod-completion",
 		},
 	},
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = { "neovim/nvim-lspconfig" },
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		module = "dap-install",
-
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		lazy = false,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-	},
+	{ "SmiteshP/nvim-navic" },
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -408,9 +357,5 @@ return {
 		"numToStr/Comment.nvim",
 		opts = {},
 		lazy = false,
-	},
-	{
-		"folke/conform.nvim",
-		opts = {},
 	},
 }

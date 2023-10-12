@@ -4,7 +4,6 @@ local wk = require("which-key")
 wk.register({
 	l = {
 		name = "Lsp",
-		--f = { "<cmd>LspZeroFormat<cr>", "Format file" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Find document symbols" },
 		S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Find workspace symbols" },
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },

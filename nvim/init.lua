@@ -15,19 +15,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
-lazy.setup("plugins/lazy", {})
+lazy.setup({
+	spec = require("plugins.lazy"),
+	checker = { enabled = true },
+})
 
 require("configs/configurations")
 require("configs/mappings")
-require("plugins/completion")
-require("plugins/conform")
-require("plugins/dap")
-require("plugins/lazy")
-require("plugins/lsp")
-require("plugins/noice")
-require("plugins/notify")
-require("plugins/telescope")
-require("plugins/terminal")
-require("plugins/treesitter")
 
 require("dap.ext.vscode").load_launchjs()
