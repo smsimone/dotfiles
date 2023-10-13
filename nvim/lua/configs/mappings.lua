@@ -83,6 +83,15 @@ wk.register({
 			"Vertical terminal",
 		},
 	},
+	-- Telescope configs
+	s = {
+		w = {
+			function()
+				require("telescope").extensions.git_worktree.git_worktrees()
+			end,
+			"List all available worktrees",
+		},
+	},
 	g = {
 		name = "Git",
 		f = { "<cmd>Telescope git_files<cr>", "Find file" },
