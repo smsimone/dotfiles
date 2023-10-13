@@ -13,6 +13,7 @@ return {
 				shell = { "shellcheck", "beautysh", "gosh" },
 				swift = { "swiftformat" },
 				bash = { "beautysh", "gosh" },
+				toml = { "taplo" },
 
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
