@@ -1,6 +1,14 @@
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		enaled = false,
+		enabled = false,
+	},
+	{
+		"folke/flash.nvim",
+		enabled = false,
+	},
+	{
+		"echasnovski/mini.ai",
+		enabled = false,
 	},
 }

@@ -10,9 +10,9 @@ return {
 				javascript = { "prettierd" },
 				typescript = { "prettierd" },
 				rust = { "rustfmt" },
-				shell = { "shellcheck" },
+				shell = { "shellcheck", "beautysh", "gosh" },
 				swift = { "swiftformat" },
-				bash = { "beautysh" },
+				bash = { "beautysh", "gosh" },
 
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
