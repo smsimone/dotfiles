@@ -91,6 +91,12 @@ wk.register({
 			end,
 			"List all available worktrees",
 		},
+		W = {
+			function()
+				require("telescope").extensions.git_worktree.create_git_worktree()
+			end,
+			"Create worktree",
+		},
 	},
 	g = {
 		name = "Git",
