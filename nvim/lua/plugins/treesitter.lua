@@ -31,26 +31,6 @@ return {
 						["ic"] = "@class.inner",
 					},
 				},
-				move = {
-					enable = true,
-					set_jumps = true,
-					goto_next_start = {
-						["nf"] = "@function.outer",
-						["nc"] = "@class.outer",
-					},
-					goto_next_end = {
-						["nF"] = "@function.outer",
-						["nC"] = "@class.outer",
-					},
-					goto_previous_start = {
-						["Nf"] = "@function.outer",
-						["Nc"] = "@class.outer",
-					},
-					goto_previous_end = {
-						["NF"] = "@function.outer",
-						["NC"] = "@class.outer",
-					},
-				},
 			},
 		})
 	end,

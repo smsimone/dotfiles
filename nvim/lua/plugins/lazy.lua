@@ -20,23 +20,6 @@ return {
 		},
 	},
 	{
-		"romgrk/barbar.nvim",
-		dependencies = {
-			"lewis6991/gitsigns.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
-		init = function()
-			vim.g.barbar_auto_setup = false
-		end,
-		opts = {
-			animation = true,
-			insert_at_start = false,
-		},
-		config = function()
-			require("barbar").setup({})
-		end,
-	},
-	{
 		"kdheepak/lazygit.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -117,20 +100,6 @@ return {
 						"nvim-dap-ui",
 					},
 					types = true,
-				},
-			})
-		end,
-	},
-	{
-		"stevearc/oil.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		config = function()
-			require("oil").setup({
-				view_options = {
-					show_hidden = true,
-					is_hidden_file = function(name, _)
-						return vim.startswith(name, ".")
-					end,
 				},
 			})
 		end,

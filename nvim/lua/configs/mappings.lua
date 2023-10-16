@@ -15,10 +15,17 @@ wk.register({
 	-- Files config
 	f = {
 		name = "Files",
-		e = { "<cmd>Oil<cr>", "Explorer" },
+		e = {
+			function()
+				local MiniFiles = require("mini.files")
+				MiniFiles.open()
+			end,
+			"Explorer",
+		},
 		f = { "<cmd>Telescope find_files<cr>", "Find files" },
 		w = { "<cmd>Telescope live_grep<cr>", "Find with grep" },
 	},
+
 	w = { "<cmd>silent w<cr>", "Save file" },
 	q = { "<cmd>confirm quit<cr>", "Quit buffer" },
 	u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
@@ -57,8 +64,8 @@ wk.register({
 		c = { "<cmd>BufferClose<cr>", "Close buffer" },
 		V = { "<cmd>vsplit<cr>", "VSplit" },
 		S = { "<cmd>split<cr>", "HSplit" },
-		b = { "<cmd>BufferPick<cr>", "Select buffer from opens" },
-		d = { "<cmd>BufferPickDelete<cr>", "Pick buffer to close" },
+		b = { "<cmd>BufferLinePick<cr>", "Select buffer from opens" },
+		d = { "<cmd>BufferLinePickClose<cr>", "Pick buffer to close" },
 	},
 
 	-- Terminal config
@@ -152,4 +159,7 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<leader>/", function()
 	require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
 end)
-vim.keymap.set("v", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
+
+vim.keymap.set("v", "<leader>/", function()
+	require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end)
