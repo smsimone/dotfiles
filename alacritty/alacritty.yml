@@ -35,6 +35,15 @@ window:
   #     - buttonless: Title bar, transparent background and no title bar buttons
   decorations: buttonless
 
+  # Override the variant of the System theme/GTK theme/Wayland client side
+  # decorations.
+  #
+  # Values:
+  #  - Light
+  #  - Dark
+  #  - None
+  decorations_theme_variant: None
+
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
