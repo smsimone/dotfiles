@@ -20,5 +20,4 @@ zed
 ditto
 *.zip
 spaceship.*
-starship.*
 nvim/lazy-lock.json
