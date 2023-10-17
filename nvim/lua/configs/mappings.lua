@@ -108,6 +108,7 @@ wk.register({
 	g = {
 		name = "Git",
 		f = { "<cmd>Telescope git_files<cr>", "Find file" },
+		u = { "<cmd>LazyGit<cr>", "Open LazyGit UI" },
 	},
 
 	-- Debugger configs
