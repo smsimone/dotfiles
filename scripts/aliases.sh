@@ -9,9 +9,9 @@ alias cd='z'
 alias l='ls -lha'
 alias fastlane='bundle exec fastlane'
 alias flutter='fvm flutter'
+alias ugit='lazygit'
 alias ..='cd ..'
 
-if command -v gitlab-ci-local &> /dev/null
-then
-  alias gcl="gitlab-ci-local"
+if command -v gitlab-ci-local &>/dev/null; then
+	alias gcl="gitlab-ci-local"
 fi
