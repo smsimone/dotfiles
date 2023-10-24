@@ -29,7 +29,33 @@ wk.register({
 	w = { "<cmd>silent w<cr>", "Save file" },
 	q = { "<cmd>confirm quit<cr>", "Quit buffer" },
 	u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
-	T = { "<cmd>Telescope<cr>", "Open telescope" },
+	T = {
+		"Telescope actions",
+		b = {
+			function()
+				local actions = require("telescope.actions")
+				local action_state = require("telescope.actions.state")
+
+				local opts = {
+					previewer = false,
+					results_height = 15,
+				}
+				opts.attach_mappings = function(prompt_bufnr, map)
+					local delete_buf = function()
+						local selection = action_state.get_selected_entry()
+						actions.close(prompt_bufnr)
+						vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+					end
+					map("i", "<c-d>", delete_buf)
+					return true
+				end
+				opts.previewer = false
+
+				require("telescope.builtin").buffers(require("telescope.themes").get_dropdown(opts))
+			end,
+			"Select buffer from opens",
+		},
+	},
 
 	-- Plugin management
 	p = {
@@ -64,8 +90,6 @@ wk.register({
 		c = { "<cmd>BufferClose<cr>", "Close buffer" },
 		V = { "<cmd>vsplit<cr>", "VSplit" },
 		S = { "<cmd>split<cr>", "HSplit" },
-		b = { "<cmd>BufferLinePick<cr>", "Select buffer from opens" },
-		d = { "<cmd>BufferLinePickClose<cr>", "Pick buffer to close" },
 	},
 
 	-- Terminal config
