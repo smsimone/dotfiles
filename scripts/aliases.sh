@@ -15,3 +15,7 @@ alias ..='cd ..'
 if command -v gitlab-ci-local &>/dev/null; then
 	alias gcl="gitlab-ci-local"
 fi
+
+if command -v lazygit &>/dev/null; then
+	alias git="lazygit"
+fi
