@@ -1,7 +1,7 @@
 vim.wo.relativenumber = true
 vim.wo.number = true
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("tokyonight-night")
 vim.o.wrap = false
 vim.opt.clipboard = "unnamedplus"
 

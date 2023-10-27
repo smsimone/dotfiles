@@ -8,6 +8,11 @@ return {
 		end,
 	},
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
 
 		"wakatime/vim-wakatime",
 		lazy = false,
