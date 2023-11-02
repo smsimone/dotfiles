@@ -21,3 +21,4 @@ ditto
 *.zip
 spaceship.*
 nvim/lazy-lock.json
+op/**

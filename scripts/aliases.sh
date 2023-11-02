@@ -17,5 +17,5 @@ if command -v gitlab-ci-local &>/dev/null; then
 fi
 
 if command -v lazygit &>/dev/null; then
-	alias git="lazygit"
+	alias lg="lazygit"
 fi
