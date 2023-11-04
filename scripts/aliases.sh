@@ -19,3 +19,7 @@ fi
 if command -v lazygit &>/dev/null; then
 	alias lg="lazygit"
 fi
+
+if command -v exa &>/dev/null; then
+	alias ls="exa"
+fi
