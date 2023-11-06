@@ -57,19 +57,19 @@ window:
 
 font:
   normal:
-    family: MonoLisa Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Medium
 
   bold:
-    family: MonoLisa Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Bold
 
   italic:
-    family: MonoLisa Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: MonoLisa Nerd Font
+    family: JetBrainsMonoNL Nerd Font Mono
     style: Bold Italic
 
   size: 10
@@ -115,6 +115,6 @@ shell:
 
 import:
   #- ~/.config/alacritty/themes/themes/mountain.yaml #one_dark.yaml
-  #- ~/.config/alacritty/themes/catppuccin/catppuccin-macchiato.yml
+  - ~/.config/alacritty/themes/catppuccin/catppuccin-mocha.yml
   # - ~/.config/alacritty/themes/flexoki.yaml
-  - ~/.config/alacritty/themes/tokyonight.yaml
+  # - ~/.config/alacritty/themes/tokyonight.yaml
