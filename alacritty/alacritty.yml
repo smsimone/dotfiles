@@ -22,7 +22,7 @@ window:
   dynamic_title: false
 
   # Background opacity
-  opacity: 0.97
+  # opacity: 0.97
 
   # Window decorations
   #
@@ -72,7 +72,7 @@ font:
     family: JetBrainsMonoNL Nerd Font Mono
     style: Bold Italic
 
-  size: 10
+  size: 11
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
