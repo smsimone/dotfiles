@@ -57,19 +57,19 @@ window:
 
 font:
   normal:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonispaceNe Nerd Font
     style: Medium
 
   bold:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonispaceNe Nerd Font
     style: Bold
 
   italic:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonispaceRd Nerd Font
     style: Italic
 
   bold_italic:
-    family: JetBrainsMonoNL Nerd Font Mono
+    family: MonispaceRd Nerd Font
     style: Bold Italic
 
   size: 11
@@ -111,7 +111,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux attach || tmux"
+    - "tmux attach || tmux -u"
 
 import:
   #- ~/.config/alacritty/themes/themes/mountain.yaml #one_dark.yaml
