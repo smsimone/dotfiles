@@ -2,6 +2,7 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"neovim/nvim-lspconfig",
+		"onsails/lspkind.nvim",
 		{
 			"L3MON4D3/LuaSnip",
 			version = "2.*",
@@ -12,8 +13,16 @@ return {
 		--
 		-- Set up nvim-cmp.
 		local cmp = require("cmp")
+		local lspkind = require("lspkind")
 
 		cmp.setup({
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol",
+					maxwidth = 50,
+					ellipsis_char = "...",
+				}),
+			},
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
