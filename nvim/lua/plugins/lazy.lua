@@ -18,13 +18,6 @@ return {
 		lazy = false,
 	},
 	{
-		"someone-stole-my-name/yaml-companion.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope.nvim" },
-		},
-	},
-	{
 		"kdheepak/lazygit.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
