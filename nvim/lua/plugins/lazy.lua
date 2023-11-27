@@ -8,12 +8,6 @@ return {
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-	{
-
 		"wakatime/vim-wakatime",
 		lazy = false,
 	},
@@ -88,7 +82,6 @@ return {
 			})
 		end,
 	},
-	{ "liaozixin/nvim-cpptools" },
 	{
 		"folke/neodev.nvim",
 		config = function()
@@ -140,16 +133,6 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	},
-	{
-		"mbbill/undotree",
-		lazy = false,
 	},
 	{
 		"NvChad/nvterm",
@@ -249,47 +232,11 @@ return {
 			})
 		end,
 	},
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		opts = {}, -- this is equalent to setup({}) function
-	},
-	{
-		"akinsho/flutter-tools.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-		config = true,
-	},
-	{
-		"kristijanhusak/vim-dadbod-ui",
-		dependencies = {
-			"tpope/vim-dadbod",
-			"kristijanhusak/vim-dadbod-completion",
-		},
-	},
 	{ "SmiteshP/nvim-navic" },
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
-	},
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {},
-	},
-	{
-		"aserowy/tmux.nvim",
-		config = function()
-			return require("tmux").setup()
-		end,
 	},
 	{ "mrjones2014/smart-splits.nvim" },
 	{
