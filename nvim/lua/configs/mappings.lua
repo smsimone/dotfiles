@@ -32,13 +32,7 @@ wk.register({
 	-- Files config
 	f = {
 		name = "Files",
-		e = {
-			function()
-				local MiniFiles = require("mini.files")
-				MiniFiles.open()
-			end,
-			"Explorer",
-		},
+		e = { "<cmd>Explore<cr>", "Explorer" },
 		f = { "<cmd>Telescope find_files<cr>", "Find files" },
 		w = { "<cmd>Telescope live_grep<cr>", "Find with grep" },
 	},
@@ -131,21 +125,8 @@ wk.register({
 			"Vertical terminal",
 		},
 	},
-	-- Telescope configs
-	s = {
-		w = {
-			function()
-				require("telescope").extensions.git_worktree.git_worktrees()
-			end,
-			"List all available worktrees",
-		},
-		W = {
-			function()
-				require("telescope").extensions.git_worktree.create_git_worktree()
-			end,
-			"Create worktree",
-		},
-	},
+
+	-- Git configs
 	g = {
 		name = "Git",
 		f = { "<cmd>Telescope git_files<cr>", "Find file" },
@@ -197,11 +178,4 @@ end)
 
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-
-vim.keymap.set("n", "<leader>/", function()
-	require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
-end)
-
-vim.keymap.set("v", "<leader>/", function()
-	require("Comment.api").toggle.linewise(vim.fn.visualmode())
-end)
+vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
