@@ -24,5 +24,3 @@ require("lazy").setup({
 
 require("configs/configurations")
 require("configs/mappings")
-
---require("dap.ext.vscode").load_launchjs()

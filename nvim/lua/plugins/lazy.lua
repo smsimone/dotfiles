@@ -85,6 +85,7 @@ return {
 	},
 	{
 		"folke/neodev.nvim",
+		enabled = false,
 		config = function()
 			require("neodev").setup({
 				library = {
@@ -130,7 +131,7 @@ return {
 					gitsigns = true,
 					nvimtree = true,
 					treesitter = true,
-					notify = true,
+					notify = false,
 				},
 			})
 		end,
@@ -240,15 +241,4 @@ return {
 		opts = {},
 	},
 	{ "mrjones2014/smart-splits.nvim" },
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		opts = {},
-		lazy = false,
-	},
 }

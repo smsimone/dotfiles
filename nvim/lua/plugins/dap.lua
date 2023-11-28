@@ -1,6 +1,7 @@
 return {
 	"rcarriga/nvim-dap-ui",
 	module = "dap-install",
+	enabled = false,
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"mxsdev/nvim-dap-vscode-js",

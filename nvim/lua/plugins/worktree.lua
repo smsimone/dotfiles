@@ -1,5 +1,5 @@
 return {
-	"ThePrimeagen/git-worktree.nvim",
+	"polarmutex/git-worktree.nvim",
 	config = function()
 		local Worktree = require("git-worktree")
 		Worktree.setup({})

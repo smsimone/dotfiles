@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	lazy = false,
 	tag = "0.1.3",
+	event = "VeryLazy",
 	dependencies = "nvim-lua/plenary.nvim",
 	config = function()
 		local telescope = require("telescope")
@@ -14,6 +14,6 @@ return {
 			},
 		})
 
-		telescope.load_extension("notify")
+		--telescope.load_extension("notify")
 	end,
 }
