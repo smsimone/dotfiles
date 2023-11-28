@@ -12,6 +12,23 @@ wk.register({
 		D = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
 	},
 
+	-- Harpoon config
+	h = {
+		name = "Harpoon",
+		a = {
+			function()
+				require("harpoon.mark").add_file()
+			end,
+			"Add file to harpoon",
+		},
+		s = {
+			function()
+				require("harpoon.ui").toggle_quick_menu()
+			end,
+			"Select file",
+		},
+	},
+
 	-- Files config
 	f = {
 		name = "Files",

@@ -1,4 +1,5 @@
 return {
+	{ "ThePrimeagen/harpoon" },
 	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 	{
 		"folke/which-key.nvim",
