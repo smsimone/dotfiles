@@ -1,4 +1,5 @@
 return {
+	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",

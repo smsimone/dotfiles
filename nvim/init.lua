@@ -18,13 +18,11 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "plugins" },
 	},
-	checker = { enabled = false },
 })
 
 require("configs/configurations")
 require("configs/mappings")
 
-require("dap.ext.vscode").load_launchjs()
+--require("dap.ext.vscode").load_launchjs()
