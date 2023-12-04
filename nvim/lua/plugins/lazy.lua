@@ -1,6 +1,12 @@
 return {
 	{ "ThePrimeagen/harpoon" },
 	{ "cohama/lexima.vim" },
+	{
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup({})
+		end,
+	},
 	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 	{
 		"folke/which-key.nvim",
@@ -87,7 +93,6 @@ return {
 	},
 	{
 		"folke/neodev.nvim",
-		enabled = false,
 		config = function()
 			require("neodev").setup({
 				library = {

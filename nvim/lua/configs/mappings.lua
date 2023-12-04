@@ -32,16 +32,9 @@ wk.register({
 	-- Files config
 	f = {
 		name = "Files",
-		e = { "<cmd>Explore<cr>", "Explorer" },
+		e = { "<cmd>Oil<cr>", "Explorer" },
 		f = { "<cmd>Telescope find_files<cr>", "Find files" },
 		w = { "<cmd>Telescope live_grep<cr>", "Find with grep" },
-	},
-
-	w = { "<cmd>silent w<cr>", "Save file" },
-	q = { "<cmd>confirm quit<cr>", "Quit buffer" },
-	u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
-	T = {
-		"Telescope actions",
 		b = {
 			function()
 				local actions = require("telescope.actions")
@@ -67,6 +60,10 @@ wk.register({
 			"Select buffer from opens",
 		},
 	},
+
+	w = { "<cmd>silent w<cr>", "Save file" },
+	q = { "<cmd>confirm quit<cr>", "Quit buffer" },
+	u = { "<cmd>UndotreeToggle<cr>", "Toggle undotree" },
 
 	-- Plugin management
 	p = {
@@ -147,6 +144,33 @@ wk.register({
 				require("dap").continue()
 			end,
 			"Continue/Start",
+		},
+		T = {
+			function()
+				require("dapui").toggle({})
+			end,
+			"Toggle dapUI",
+		},
+
+		t = {
+			function()
+				require("dap").terminate()
+			end,
+			"Terminate",
+		},
+		s = {
+			o = {
+				function()
+					require("dap").step_over()
+				end,
+				"Step over",
+			},
+			i = {
+				function()
+					require("dap").step_into()
+				end,
+				"Step into",
+			},
 		},
 	},
 }, { prefix = "<leader>" })
