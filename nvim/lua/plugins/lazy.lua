@@ -91,6 +91,7 @@ return {
 			})
 		end,
 	},
+	{ "mechatroner/rainbow_csv" },
 	{
 		"folke/neodev.nvim",
 		config = function()
