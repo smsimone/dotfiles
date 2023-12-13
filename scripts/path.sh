@@ -23,6 +23,7 @@ paths=(
 	"/usr/local/opt/libpq/bin"
 	"/usr/local/sbin"
 	"/usr/sbin"
+  "$HOME/.local/bin"
 )
 
 paths_combined=""

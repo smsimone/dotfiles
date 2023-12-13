@@ -19,7 +19,7 @@ disabled = true
 disabled = true
 
 [directory]
-disabled = true
+disabled = false
 
 [git_branch]
 format = "[$branch]($style) "
