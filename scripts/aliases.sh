@@ -23,3 +23,5 @@ fi
 if command -v exa &>/dev/null; then
 	alias ls="exa"
 fi
+
+alias gprisma="go run github.com/steebchen/prisma-client-go"
