@@ -50,5 +50,5 @@ render_timer = false
 hide_when_typing = true
 
 [shell]
-program = "/bin/zsh"
-args = ["-l", "-c", "tmux attach || tmux"]
+program = "zsh"
+#args = ["--login", "-c tmux"]
