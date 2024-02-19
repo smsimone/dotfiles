@@ -8,5 +8,5 @@ vim.opt.clipboard = "unnamedplus"
 
 local set = vim.opt
 set.tabstop = 2
-set.shiftwidth = 2
+set.shiftwidth = 4
 set.expandtab = true
