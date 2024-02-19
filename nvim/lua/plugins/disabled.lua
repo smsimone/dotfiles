@@ -1,38 +1,17 @@
 return {
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		enabled = false,
-	},
-	{
-		"folke/flash.nvim",
-		enabled = false,
-	},
-	{
-		"echasnovski/mini.ai",
-		enabled = false,
-	},
-	{
-		"akinsho/bufferline.nvim",
-		enabled = false,
-	},
-	{
-		"nvimdev/dashboard-nvim",
-		enabled = false,
-	},
-	{
-		"rcarriga/nvim-notify",
-		enabled = false,
-	},
-	{
-		"echasnovski/mini.comment",
-		enabled = false,
-	},
-	{
-		"echasnovski/mini.indentscope",
-		enabled = false,
-	},
-	{
-		"echasnovski/mini.pairs",
-		enabled = false,
-	},
+    { "nvim-neo-tree/neo-tree.nvim",   enabled = false, },
+    { "folke/flash.nvim",              enabled = false, },
+    { "echasnovski/mini.ai",           enabled = false, },
+    { "akinsho/bufferline.nvim",       enabled = false, },
+    { "nvimdev/dashboard-nvim",        enabled = false, },
+    { "rcarriga/nvim-notify",          enabled = false, },
+    { "echasnovski/mini.comment",      enabled = false, },
+    { "echasnovski/mini.indentscope",  enabled = false, },
+    { "echasnovski/mini.pairs",        enabled = false, },
+    { "echasnovski/mini.surround",     enabled = false },
+    { "echasnovski/mini.bufremove",    enabled = false },
+    { "dressing.nvim",                 enabled = false },
+    { "nui.nvim",                      enabled = false },
+    { "nvim-puppeteer",                enabled = false },
+    { "nvim-ts-context-commentstring", enabled = false },
 }
