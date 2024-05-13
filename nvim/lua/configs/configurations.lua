@@ -2,7 +2,7 @@ vim.wo.relativenumber = true
 vim.wo.number = true
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme("catppuccin-mocha")
+-- vim.cmd.colorscheme("catppuccin-mocha")
 vim.o.wrap = false
 vim.opt.clipboard = "unnamedplus"
 
