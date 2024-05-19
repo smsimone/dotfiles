@@ -1,7 +1,6 @@
 return {
-    { "LazyVim/LazyVim",  import = "lazyvim.plugins" },
-    -- auto closes the parentheses
     { "cohama/lexima.vim" },
+    { 'stevearc/conform.nvim' },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -24,7 +23,6 @@ return {
         ft = { "python", "javascript", "typescript" },
     },
     { "RRethy/vim-illuminate", },
-    { "folke/neodev.nvim",     opts = {} },
     {
         "NvChad/nvterm",
         config = function()

@@ -4,61 +4,25 @@ local wk = require("which-key")
 wk.register({
     l = {
         name = "Lsp",
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Find document symbols" },
-        S = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Find workspace symbols" },
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
+        s = { "<cmd>FzfLua lsp_document_symbols<cr>", "Find document symbols" },
+        S = { "<cmd>FzfLua lsp_workspace_symbols<cr>", "Find workspace symbols" },
+        a = { "<cmd>FzfLua lsp_code_actions<cr>", "Code actions" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-        d = { "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<cr>", "Get line diagnostic" },
-        D = { "<cmd>TroubleToggle<cr>", "Toggle trouble" },
-    },
-
-    -- Harpoon config
-    h = {
-        name = "Harpoon",
-        a = {
-            function()
-                require("harpoon.mark").add_file()
-            end,
-            "Add file to harpoon",
-        },
-        s = {
-            function()
-                require("harpoon.ui").toggle_quick_menu()
-            end,
-            "Select file",
-        },
+        D = { "<cmd>FzfLua lsp_workspace_diagnostics<cr>", "Toggle trouble" },
+        c = {
+            name = "Method calls",
+            i = { "<cmd>FzfLua lsp_incoming_calls<cr>", "Incoming calls" },
+            o = { "<cmd>FzfLua lsp_outgoing_calls<cr>", "Outgoing calls" },
+        }
     },
 
     -- Files config
     f = {
         name = "Files",
-        e = { "<cmd>lua MiniFiles.open()<cr>", "Explorer" },
-        f = { "<cmd>Telescope find_files<cr>", "Find files" },
-        w = { "<cmd>Telescope live_grep<cr>", "Find with grep" },
-        b = {
-            function()
-                local actions = require("telescope.actions")
-                local action_state = require("telescope.actions.state")
-
-                local opts = {
-                    previewer = false,
-                    results_height = 15,
-                }
-                opts.attach_mappings = function(prompt_bufnr, map)
-                    local delete_buf = function()
-                        local selection = action_state.get_selected_entry()
-                        actions.close(prompt_bufnr)
-                        vim.api.nvim_buf_delete(selection.bufnr, { force = true })
-                    end
-                    map("i", "<c-d>", delete_buf)
-                    return true
-                end
-                opts.previewer = false
-
-                require("telescope.builtin").buffers(require("telescope.themes").get_dropdown(opts))
-            end,
-            "Select buffer from opens",
-        },
+        e = { "<cmd>Ex<cr>", "Explorer" },
+        f = { "<cmd>FzfLua files<cr>", "Find files" },
+        w = { "<cmd>FzfLua live_grep_native<cr>", "Find with grep" },
+        b = { "<cmd>FzfLua buffeFzfLua buffersrs<cr>", "Select buffer from opens" },
     },
 
     w = { "<cmd>silent w<cr>", "Save file" },
@@ -95,7 +59,6 @@ wk.register({
     -- Buffer configs
     b = {
         name = "Buffer mappings",
-        c = { "<cmd>BufferClose<cr>", "Close buffer" },
         V = { "<cmd>vsplit<cr>", "VSplit" },
         S = { "<cmd>split<cr>", "HSplit" },
     },
@@ -126,7 +89,7 @@ wk.register({
     -- Git configs
     g = {
         name = "Git",
-        f = { "<cmd>Telescope git_files<cr>", "Find file" },
+        f = { "<cmd>FzfLua git_files<cr>", "Find file" },
         u = { "<cmd>LazyGit<cr>", "Open LazyGit UI" },
     },
 
@@ -200,6 +163,6 @@ vim.keymap.set("n", "<C-Right>", function()
     require("smart-splits").resize_right()
 end)
 
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<cr>")
+vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>")
+vim.keymap.set("n", "gi", "<cmd>FzfLua lsp_implementations<cr>")

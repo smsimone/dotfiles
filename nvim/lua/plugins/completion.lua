@@ -4,28 +4,35 @@ return {
         {
             "neovim/nvim-lspconfig",
             opts = {
-                inline_hints = { enabled = true },
+                -- disabled because it generates an error:
+                --
+                -- [lspconfig] Cannot access configuration for inline_hints. Ensure this server is listed in `server_configurations.md` or added as a custom server.
+                -- [lspconfig] Cannot access configuration for servers. Ensure this server is listed in `server_configurations.md` or added as a custom server.
+                -- inline_hints = { enabled = false },
                 servers = {
                     jdtls = {
                         cmd = {
                             "jdtls",
                             "--jvm-arg=" ..
                             string.format("-javaagent:%s",
-                                vim.fn.expand("/Users/simonemasoero/.local/share/nvim/mason/packages/jdtls/lombok.jar"))
+                                vim.fn.expand(os.getenv("HOME") .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar"))
                         }
-                    }
+                    },
                 }
-            }
+            },
+            config = function(_, servers)
+                for server, opts in pairs(servers) do
+                    require('lspconfig')[server].setup(opts)
+                end
+            end
         },
         "onsails/lspkind.nvim",
         {
             "L3MON4D3/LuaSnip",
-            --version = "2.*",
             build = "make install_jsregexp",
         },
     },
     config = function()
-        --
         -- Set up nvim-cmp.
         local cmp = require("cmp")
         local lspkind = require("lspkind")
@@ -43,16 +50,23 @@ return {
                     require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
-            window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
-            },
             mapping = cmp.mapping.preset.insert({
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ["<Tab>"] = cmp.mapping(
+                    function(fallback)
+                        if cmp.visible() then
+                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+                        elseif require("luasnip").expand_or_jumpable() then
+                            vim.fn.feedkeys(
+                                vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }
+                ),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
@@ -102,6 +116,50 @@ return {
                     end
                 })
             end,
+            ["gopls"] = function()
+                require 'lspconfig'.gopls.setup({
+                    capabilities = capabilities,
+                    on_attach = function(client, bufnr)
+                        navic.attach(client, bufnr)
+                    end,
+                    settings = { -- custom settings for gopls
+                        gopls = {
+                            gofumpt = false,
+                            codelenses = {
+                                gc_details = false,
+                                generate = true,
+                                regenerate_cgo = true,
+                                run_govulncheck = true,
+                                test = true,
+                                tidy = true,
+                                upgrade_dependency = true,
+                                vendor = true,
+                            },
+                            hints = {
+                                assignVariableTypes = true,
+                                compositeLiteralFields = true,
+                                compositeLiteralTypes = true,
+                                constantValues = true,
+                                functionTypeParameters = true,
+                                parameterNames = true,
+                                rangeVariableTypes = true,
+                            },
+                            analyses = {
+                                fieldalignment = true,
+                                nilness = true,
+                                unusedparams = true,
+                                unusedwrite = true,
+                                useany = true,
+                            },
+                            usePlaceholders = true,
+                            completeUnimported = true,
+                            staticcheck = true,
+                            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+                            semanticTokens = true,
+                        },
+                    },
+                })
+            end
         })
     end,
 }
