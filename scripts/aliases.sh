@@ -5,7 +5,7 @@ alias vim='nvim'
 alias gw='git worktree'
 alias jqq='/Users/smaso/Development/jqq/jqq.rb'
 alias update='brew update && brew upgrade; brew cleanup'
-alias cd='z'
+#alias cd='z'
 alias l='ls -lha'
 alias fastlane='bundle exec fastlane'
 alias flutter='fvm flutter'
@@ -13,15 +13,15 @@ alias ugit='lazygit'
 alias ..='cd ..'
 
 if command -v gitlab-ci-local &>/dev/null; then
-	alias gcl="gitlab-ci-local"
+    alias gcl="gitlab-ci-local"
 fi
 
 if command -v lazygit &>/dev/null; then
-	alias lg="lazygit"
+    alias lg="lazygit"
 fi
 
-if command -v exa &>/dev/null; then
-	alias ls="exa"
+if command -v eza &>/dev/null; then
+    alias ls="eza"
 fi
 
 alias gprisma="go run github.com/steebchen/prisma-client-go"

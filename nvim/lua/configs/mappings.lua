@@ -19,7 +19,7 @@ wk.register({
     -- Files config
     f = {
         name = "Files",
-        e = { "<cmd>Ex<cr>", "Explorer" },
+        e = { function() MiniFiles.open() end, "Explorer" },
         f = { "<cmd>FzfLua files<cr>", "Find files" },
         w = { "<cmd>FzfLua live_grep_native<cr>", "Find with grep" },
         b = { "<cmd>FzfLua buffeFzfLua buffersrs<cr>", "Select buffer from opens" },
@@ -64,27 +64,27 @@ wk.register({
     },
 
     -- Terminal config
-    t = {
-        name = "Terminal",
-        f = {
-            function()
-                require("nvterm.terminal").toggle("float")
-            end,
-            "Floating",
-        },
-        h = {
-            function()
-                require("nvterm.terminal").toggle("horizontal")
-            end,
-            "Horizontal terminal",
-        },
-        v = {
-            function()
-                require("nvterm.terminal").toggle("vertical")
-            end,
-            "Vertical terminal",
-        },
-    },
+    --    t = {
+    --        name = "Terminal",
+    --        f = {
+    --            function()
+    --                require("nvterm.terminal").toggle("float")
+    --            end,
+    --            "Floating",
+    --        },
+    --        h = {
+    --            function()
+    --                require("nvterm.terminal").toggle("horizontal")
+    --            end,
+    --            "Horizontal terminal",
+    --        },
+    --        v = {
+    --            function()
+    --                require("nvterm.terminal").toggle("vertical")
+    --            end,
+    --            "Vertical terminal",
+    --        },
+    --    },
 
     -- Git configs
     g = {

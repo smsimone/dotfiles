@@ -25,6 +25,7 @@ return {
     { "RRethy/vim-illuminate", },
     {
         "NvChad/nvterm",
+        enabled = false,
         config = function()
             require("nvterm").setup({})
         end,
