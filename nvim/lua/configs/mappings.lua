@@ -64,27 +64,12 @@ wk.register({
     },
 
     -- Terminal config
-    --    t = {
-    --        name = "Terminal",
-    --        f = {
-    --            function()
-    --                require("nvterm.terminal").toggle("float")
-    --            end,
-    --            "Floating",
-    --        },
-    --        h = {
-    --            function()
-    --                require("nvterm.terminal").toggle("horizontal")
-    --            end,
-    --            "Horizontal terminal",
-    --        },
-    --        v = {
-    --            function()
-    --                require("nvterm.terminal").toggle("vertical")
-    --            end,
-    --            "Vertical terminal",
-    --        },
-    --    },
+    t = {
+        name = "Terminal",
+        f = { "<cmd>ToggleTerm direction=float<cr>", "Floating" },
+        h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal terminal" },
+        v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical terminal" },
+    },
 
     -- Git configs
     g = {
