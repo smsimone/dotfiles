@@ -19,7 +19,7 @@
         darwinConfigurations = let 
             inherit (inputs.nix-darwin.lib) darwinSystem; 
         in{
-            machine = darwinSystem{
+            mbasmaso = darwinSystem{
 system = "aarch64-darwin";
 specialArgs = {inherit inputs; };
 
