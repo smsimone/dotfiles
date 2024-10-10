@@ -1,6 +1,12 @@
-{pkgs,...}:
+{
+  pkgs,
+  lib,
+  inputs,
+}:
 
 {
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  environment.systemPackages = [ pkgs.nixfmt-rfc-style ];
+  programs = {
+    bash.enable = false;
+    zsh.enable = true;
+  };
 }
