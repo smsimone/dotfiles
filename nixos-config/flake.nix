@@ -24,7 +24,7 @@ system = "aarch64-darwin";
 specialArgs = {inherit inputs; };
 
 modules = [
-   ./configuration.nix
+   ./hosts/mbasmaso/configuration.nix
 ];
             };
         };
