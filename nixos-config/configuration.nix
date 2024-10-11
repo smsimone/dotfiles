@@ -10,6 +10,9 @@
       pkgs.yabai
       pkgs.skhd
       pkgs.alacritty
+
+      # Rust toolchains
+      pkgs.rustup
     ];
 
     variables = {

@@ -6,6 +6,9 @@ _: {
       cleanup = "uninstall";
       upgrade = true;
     };
+    casks = [
+      "alacritty"
+    ];
     taps = [
       "leoafarias/fvm"
     ];
@@ -23,6 +26,8 @@ _: {
       "eza"
       "bat"
       "btop"
+      "tmux"
+      "rg"
     ];
     masApps = {
       Telegram = 747648890;
