@@ -17,7 +17,10 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#airsmaso
       darwinConfigurations."airsmaso" = nix-darwin.lib.darwinSystem {
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./configuration.nix
+          ./application-configs
+        ];
         specialArgs = { inherit inputs; };
       };
 
