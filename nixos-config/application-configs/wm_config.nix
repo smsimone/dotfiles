@@ -33,10 +33,16 @@ _: {
         ctrl + alt - s: yabai --start-service
 
         # changing window focus
-        alt - j: yabai -m window --focus south
-        alt - k: yabai -m window --focus north
-        alt - h: yabai -m window --focus west
-        alt - l: yabai -m window --focus east
+        alt - h : yabai -m window --swap west || yabai -m display --focus west
+        alt - j : yabai -m window --swap south || yabai -m display --focus south
+        alt - k : yabai -m window --swap north || yabai -m display --focus north
+        alt - l : yabai -m window --swap east || yabai -m display --focus east
+
+        # swap windows
+        shift + alt - h: yabai -m window --warp west || yabai -m window --display west && yabai -m display --focus north
+        shift + alt - j: yabai -m window --warp south || yabai -m window --display south && yabai -m display --focus south
+        shift + alt - k: yabai -m window --warp north || yabai -m window --display north && yabai -m display --focus north
+        shift + alt - l: yabai -m window --warp east || yabai -m window --display east && yabai -m display --focus east
 
         # rotate layout clockwise
         shift + alt - c: yabai -m space --rotate 270
@@ -58,18 +64,6 @@ _: {
 
         # reset window size
         shift + alt - e: yabai -m space --balance
-
-        # swap windows
-        shift + alt - h: yabai -m window --swap west
-        shift + alt - j: yabai -m window --swap south
-        shift + alt - k: yabai -m window --swap north
-        shift + alt - l: yabai -m window --swap east
-
-        # move window and split
-        ctrl + alt - h: yabai -m window --warp west
-        ctrl + alt - j: yabai -m window --warp south
-        ctrl + alt - k: yabai -m window --warp north
-        ctrl + alt - l: yabai -m window --warp east
       '';
     };
   };
