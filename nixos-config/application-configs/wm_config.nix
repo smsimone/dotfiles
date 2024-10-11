@@ -33,10 +33,10 @@ _: {
         ctrl + alt - s: yabai --start-service
 
         # changing window focus
-        alt - h : yabai -m window --swap west || yabai -m display --focus west
-        alt - j : yabai -m window --swap south || yabai -m display --focus south
-        alt - k : yabai -m window --swap north || yabai -m display --focus north
-        alt - l : yabai -m window --swap east || yabai -m display --focus east
+        alt - h : yabai -m window --focus west || yabai -m display --focus west
+        alt - j : yabai -m window --focus south || yabai -m display --focus south
+        alt - k : yabai -m window --focus north || yabai -m display --focus north
+        alt - l : yabai -m window --focus east || yabai -m display --focus east
 
         # swap windows
         shift + alt - h: yabai -m window --warp west || yabai -m window --display west && yabai -m display --focus north
