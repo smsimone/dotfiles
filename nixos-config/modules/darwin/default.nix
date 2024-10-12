@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./homebrew.nix
-    # ./wm_config.nix
+    ./configs.nix
+    #./wm_config.nix
   ];
-
 }

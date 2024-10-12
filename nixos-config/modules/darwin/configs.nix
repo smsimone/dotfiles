@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  config, 
+  config,
   ...
 }:
 {
@@ -24,7 +24,7 @@
   ];
 
   environment = {
-    systemPackages = with pkgs ; [
+    systemPackages = with pkgs; [
       yabai
       skhd
     ];

@@ -24,8 +24,7 @@
       };
       darwinConfigs = {
         imports = [
-          ./darwin_configuration.nix
-          ./modules/homebrew.nix
+          ./modules/darwin
         ];
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
