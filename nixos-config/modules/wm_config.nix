@@ -1,3 +1,5 @@
+# !! Currently disabled
+
 _: {
   services = {
     yabai = {
