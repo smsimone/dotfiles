@@ -52,9 +52,9 @@
         ];
       };
 
-      nixosConfigurations.vm-aarch64-utm = {
+      nixosConfigurations.rasp = {
         system = "armv7l-linux";
-        user = "root";
+        user = "smaso";
         modules = [
           commonConfigs
           raspConfigs
