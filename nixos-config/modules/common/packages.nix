@@ -36,6 +36,5 @@
     git
 
     alacritty
-
   ];
 }

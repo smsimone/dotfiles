@@ -35,21 +35,31 @@
         # $ darwin-rebuild changelog
         system.stateVersion = 5;
       };
+      raspConfigs = {
+        import = [
+          ./modules/rasp.nix
+        ];
+      };
     in
     {
-      darwinConfigurations = {
-        airsmaso = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = { inherit inputs; };
-          modules = [
-            darwinConfigs
-            commonConfigs
-            home-manager.darwinModules.home-manager
-          ];
-        };
+      darwinConfigurations.airsmaso = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = { inherit inputs; };
+        modules = [
+          darwinConfigs
+          commonConfigs
+          home-manager.darwinModules.home-manager
+        ];
       };
 
-      # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."airsmaso".pkgs;
+      nixosConfigurations.vm-aarch64-utm = {
+        system = "armv7l-linux";
+        user = "root";
+        modules = [
+          commonConfigs
+          raspConfigs
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
 }
