@@ -41,7 +41,14 @@
       fastlane = "bundle exec fastlane";
       flutter = "fvm flutter";
       lg = "lazygit";
+      ls = "eza";
       ".." = "cd ..";
+    };
+
+    variables= {
+        GOPATH = "/Users/simonemasoero/go";
+        GOBIN = "/Users/simonemasoero/go/bin";
+        EDITOR = "nvim";
     };
   };
 
@@ -60,6 +67,8 @@
       enable = true;
       variables = {
         EDITOR = "nvim";
+        GOPATH = "/Users/simonemasoero/go";
+        GOBIN = "/Users/simonemasoero/go/bin";
       };
     };
   };

@@ -5,6 +5,7 @@
     mkalias
     zoxide
     rbenv
+    sqlc
 
     # archives
     zip
@@ -35,6 +36,10 @@
     tmux
     git
 
-    alacritty
+    obsidian
+    lua
+    yq
+    fd
+    delta
   ];
 }
