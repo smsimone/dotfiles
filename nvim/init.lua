@@ -46,5 +46,17 @@ require("lazy").setup(
 		},
 	})
 
+--- @return string
+local function get_colorscheme()
+	local interfaceStyle = io.popen("defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
+	if interfaceStyle == 'Dark' then
+		return 'catppuccin-mocha'
+	else
+		return 'catppuccin-latte'
+	end
+end
+
+vim.cmd.colorscheme(get_colorscheme())
+
 require("configurations/configurations")
 require("configurations/mappings")
