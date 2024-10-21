@@ -20,7 +20,7 @@ register.setup({
 			f = { "FzfLua files", desc = "Find files" },
 			b = { "FzfLua buffers", desc = "Find buffers" },
 			d = { "FzfLua diagnostics_workspace", desc = "Find diagnostics" },
-			w = { "FzfLua grep_project", desc = "Find words" },
+			w = { "FzfLua live_grep", desc = "Find words" },
 		},
 		g = {
 			r = { "FzfLua lsp_references", desc = "Find references", leader = "" },
@@ -38,6 +38,11 @@ register.setup({
 			f = { "<cmd>ToggleTerm direction=float name=terminal<cr>", desc = "Floating" },
 			h = { "<cmd>ToggleTerm direction=horizontal name=terminal<cr>", desc = "Horizontal terminal" },
 			v = { "<cmd>ToggleTerm direction=vertical name=terminal<cr>", desc = "Vertical terminal" },
+		},
+		l = {
+			i = { "LspInfo", desc = "Lsp info" },
+			s = { "FzfLua lsp_document_symbols", desc = "Document symbols" },
+			S = { "FzfLua lsp_workspace_symbols", desc = "Document symbols" },
 		},
 	},
 })

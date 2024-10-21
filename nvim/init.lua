@@ -48,6 +48,11 @@ require("lazy").setup(
 
 --- @return string
 local function get_colorscheme()
+	local os_name = io.popen("uname"):read("*a")
+	if not os_name:find("Darwin") then
+		return 'catppuccin-mocha'
+	end
+
 	local interfaceStyle = io.popen("defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
 	if interfaceStyle == 'Dark' then
 		return 'catppuccin-mocha'
