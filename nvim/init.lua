@@ -53,7 +53,7 @@ local function get_colorscheme()
 		return 'catppuccin-mocha'
 	end
 
-	local interfaceStyle = io.popen("defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
+	local interfaceStyle = io.popen("2>&1 defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
 	if interfaceStyle == 'Dark' then
 		return 'catppuccin-mocha'
 	else

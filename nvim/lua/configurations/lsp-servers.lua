@@ -10,7 +10,8 @@ local lspToMasonMap = {
 	jsonls = "json-lsp",
 	lua_ls = "lua-language-server",
 	yamlls = "yaml-language-server",
-	gopls = "gopls"
+	sqlls = "sqlls",
+	gopls = "gopls",
 }
 
 ---@module "lspconfig"
@@ -24,9 +25,9 @@ local extraDependencies = {
 	"shfmt", -- used by bashls for formatting
 	"shellcheck", -- used by bashls/efm for diagnostics, PENDING https://github.com/bash-lsp/bash-language-server/issues/663
 	"stylua", -- efm
-	"markdown-toc", -- efm
-	"markdownlint", -- efm
-	"gopls",
+	-- "markdown-toc", -- efm
+	-- "markdownlint", -- efm
+	-- "gopls",
 }
 
 -- INFO To have the mason-module access this, we cannot return this table, since
@@ -117,6 +118,14 @@ M.serverConfigs.gopls = {
 			staticcheck = true,
 			gofumpt = true,
 		},
+	},
+}
+
+--------------------------------------------------------------------------------
+-- SQL
+-- DOCS https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+M.serverConfigs.sqlls = {
+	settings = {
 	},
 }
 
