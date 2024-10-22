@@ -41,5 +41,6 @@
     yq
     fd
     delta
+    postgresql
   ];
 }

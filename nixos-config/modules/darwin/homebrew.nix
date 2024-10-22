@@ -7,12 +7,11 @@ _: {
                upgrade = true;
            };
            casks = [
-               "alacritty"
                 "wezterm"
            ];
            taps = [
                "leoafarias/fvm"
-                   "pkgxdev/made"
+                "pkgxdev/made"
            ];
            brews = [
                "fvm"
