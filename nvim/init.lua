@@ -50,18 +50,18 @@ require("lazy").setup(
 local function get_colorscheme()
 	local os_name = io.popen("uname"):read("*a")
 	if not os_name:find("Darwin") then
-		return 'catppuccin-mocha'
+		return 'cyberdream'
 	end
 
 	local interfaceStyle = io.popen("2>&1 defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
 	if interfaceStyle == 'Dark' then
-		return 'catppuccin-mocha'
+		return 'cyberdream'
 	else
-		return 'catppuccin-latte'
+		return 'cyberdream'
 	end
 end
 
-vim.cmd.colorscheme(get_colorscheme())
+vim.cmd.colorscheme("cyberdream")
 
 require("configurations/configurations")
 require("configurations/mappings")

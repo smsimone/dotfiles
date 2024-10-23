@@ -1,6 +1,5 @@
-{
-  pkgs,
-  ...
+{ pkgs
+, ...
 }:
 {
   home.stateVersion = "23.05";
@@ -30,6 +29,7 @@
     btop
 
     nil # nix linter
+    nixpkgs-fmt
     rustup
     go
     wget
@@ -47,6 +47,7 @@
     GOPATH = "/Users/simonemasoero/go";
     GOBIN = "/Users/simonemasoero/go/bin";
     EDITOR = "nvim";
+    PATH = "$PATH:/Users/simonemasoero/fvm/default/bin";
   };
 
   programs = {

@@ -12,6 +12,8 @@ local lspToMasonMap = {
 	yamlls = "yaml-language-server",
 	sqlls = "sqlls",
 	gopls = "gopls",
+	dockerls = "dockerfile-language-server",
+	nil_ls = "nil"
 }
 
 ---@module "lspconfig"
@@ -126,6 +128,24 @@ M.serverConfigs.gopls = {
 -- DOCS https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 M.serverConfigs.sqlls = {
 	settings = {
+	},
+}
+
+--------------------------------------------------------------------------------
+-- DOCKER
+M.serverConfigs.dockerls = {}
+
+--------------------------------------------------------------------------------
+-- NIL
+M.serverConfigs.nil_ls = {
+	settings = {
+		["nil"] = {
+			formatting = {
+				command = {
+					"nixpkgs-fmt"
+				}
+			}
+		}
 	},
 }
 

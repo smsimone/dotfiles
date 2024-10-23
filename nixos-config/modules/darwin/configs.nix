@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 {
   users.users.simonemasoero = {
@@ -45,10 +44,10 @@
       ".." = "cd ..";
     };
 
-    variables= {
-        GOPATH = "/Users/simonemasoero/go";
-        GOBIN = "/Users/simonemasoero/go/bin";
-        EDITOR = "nvim";
+    variables = {
+      GOPATH = "/Users/simonemasoero/go";
+      GOBIN = "/Users/simonemasoero/go/bin";
+      EDITOR = "nvim";
     };
   };
 
@@ -135,7 +134,7 @@
       # killall Dock to make them have effect
       # https://github.com/LnL7/nix-darwin/blob/master/modules/system/defaults/dock.nix
       dock = rec {
-        autohide = true;
+        autohide = false;
         magnification = true;
         # most recently used spaces
         mru-spaces = false;

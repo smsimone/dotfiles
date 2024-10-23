@@ -10,11 +10,11 @@
   };
 
   outputs =
-    {
-      self,
-      home-manager,
-      nixpkgs,
-      darwin,
+    { self
+    , home-manager
+    , nixpkgs
+    , darwin
+    ,
     }@inputs:
     let
       commonConfigs = {
@@ -22,6 +22,7 @@
           ./modules/common
         ];
       };
+
       darwinConfigs = {
         imports = [
           ./modules/darwin

@@ -70,9 +70,9 @@ return {
 					{ name = "git" },
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
-					{ name = "luasnip" },
 					{ name = "path" },
-					{ name = "buffer" },
+					-- { name = "luasnip" },
+					-- { name = "buffer" },
 				},
 			})
 		end,

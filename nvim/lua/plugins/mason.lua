@@ -60,10 +60,7 @@ return {
 			end
 		end,
 		dependencies = {
-			{
-				"folke/neodev.nvim",
-				opts = {}
-			}
+			"folke/neodev.nvim",
 		}
 	},
 }
