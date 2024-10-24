@@ -1,27 +1,7 @@
-local wezterm = require('wezterm')
-local config = wezterm.config_builder()
-local opacity = 0.96
-local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
-local features = require('theme-switch')
-
-
---- @return string
-local function scheme_for_appearance()
-	local function get_appearance()
-		if wezterm.gui then
-			return wezterm.gui.get_appearance()
-		end
-		return "Dark"
-	end
-
-	if get_appearance():find 'Dark' then
-		-- return 'catppuccin-mocha'
-		return 'theme'
-	else
-		-- return 'catppuccin-latte'
-		return 'theme-light'
-	end
-end
+local wezterm                       = require('wezterm')
+local config                        = wezterm.config_builder()
+local opacity                       = 0.96
+local features                      = require('theme-switch')
 
 -- Font
 config.font                         = wezterm.font_with_fallback({
@@ -46,22 +26,17 @@ config.animation_fps                = 60
 config.cursor_blink_rate            = 250
 
 -- Colors
---config.colors                       = require(scheme_for_appearance())
-config.color_scheme = "rose-pine-moon"
+config.color_scheme                 = "rose-pine-moon"
 config.force_reverse_video_cursor   = true
 
 -- Tabs
 config.enable_tab_bar               = true
 config.hide_tab_bar_if_only_one_tab = true
-config.show_tab_index_in_tab_bar    = false
+config.show_tab_index_in_tab_bar    = true
 config.use_fancy_tab_bar            = false
---config.colors.tab_bar               = {
---	background = transparent_bg,
---	-- new_tab = { fg_color = config.colors.background, bg_color = config.colors.brights[6] },
---	-- new_tab_hover = { fg_color = config.colors.background, bg_color = config.colors.foreground },
---}
 
-config.keys                         = {
+
+config.keys = {
 	{
 		key = 'k',
 		mods = 'CMD',
