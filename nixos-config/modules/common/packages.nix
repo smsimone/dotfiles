@@ -1,6 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    luarocks
     neofetch
     mkalias
     zoxide
@@ -25,7 +25,6 @@
     iftop
     btop
 
-    nil # nix linter
     rustup
     go
     wget
@@ -42,5 +41,6 @@
     fd
     delta
     postgresql
+    alejandra
   ];
 }

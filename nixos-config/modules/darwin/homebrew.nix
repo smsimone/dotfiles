@@ -8,6 +8,8 @@ _: {
     };
     casks = [
       "wezterm"
+      # "sanesidebuttons"
+      "swiftformat-for-xcode"
     ];
     taps = [
       "leoafarias/fvm"
@@ -16,7 +18,6 @@ _: {
     brews = [
       "fvm"
       "mas"
-      "flyctl"
       "pkgx"
     ];
     masApps = {
@@ -24,6 +25,7 @@ _: {
       Whatsapp = 310633997;
       Magnet = 441258766;
       Xcode = 497799835;
+      WindowsApp = 1295203466;
     };
   };
 }

@@ -2,18 +2,21 @@ local M = {}
 --------------------------------------------------------------------------------
 -- DOCS https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/configs
 --------------------------------------------------------------------------------
+---@class lspConfig
+---@field masonName string
+---@field masonIgnore boolean
 
 ---since nvim-lspconfig and mason.nvim use different package names
 ---mappings from https://github.com/williamboman/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/mappings/server.lua
----@type table<string, string>
+---@type table<string, lspConfig>
 local lspToMasonMap = {
-	jsonls = "json-lsp",
-	lua_ls = "lua-language-server",
-	yamlls = "yaml-language-server",
-	sqlls = "sqlls",
-	gopls = "gopls",
-	dockerls = "dockerfile-language-server",
-	nil_ls = "nil"
+	jsonls = { masonName = "json-lsp", masonIgnore = false },
+	lua_ls = { masonName = "lua-language-server", masonIgnore = false },
+	yamlls = { masonName = "yaml-language-server", masonIgnore = false },
+	sqlls = { masonName = "sqlls", masonIgnore = false },
+	gopls = { masonName = "gopls", masonIgnore = false },
+	dockerls = { masonName = "dockerfile-language-server", masonIgnore = false },
+	nil_ls = { masonName = "nil", masonIgnore = false },
 }
 
 ---@module "lspconfig"
@@ -32,25 +35,17 @@ local extraDependencies = {
 	-- "gopls",
 }
 
--- INFO To have the mason-module access this, we cannot return this table, since
--- `lazy.nvim` uses the return values for the plugin spec. Thus we save it in a
--- global variable, so the mason-module can access it.
-M.masonDependencies = vim.list_extend(extraDependencies, vim.tbl_values(lspToMasonMap))
-
---------------------------------------------------------------------------------
--- BASH / ZSH
-
--- DOCS https://github.com/bash-lsp/bash-language-server/blob/main/server/src/config.ts
--- M.serverConfigs.bashls = {
--- 	filetypes = { "sh", "zsh", "bash" }, -- work in zsh as well
--- 	settings = {
--- 		bashIde = {
--- 			shellcheckPath = "", -- disable while using efm
--- 			shellcheckArguments = "--shell=bash", -- PENDING https://github.com/bash-lsp/bash-language-server/issues/1064
--- 			shfmt = { spaceRedirects = true },
--- 		},
--- 	},
--- }
+---@return string[]
+function M.masonDependencies()
+	---@type string[]
+	local values = {}
+	for _, conf in pairs(lspToMasonMap) do
+		if not conf.masonIgnore then
+			table.insert(values, conf.masonName)
+		end
+	end
+	return vim.list_extend(extraDependencies, values)
+end
 
 --------------------------------------------------------------------------------
 -- LUA
@@ -74,9 +69,6 @@ M.serverConfigs.lua_ls = {
 				setType = true,
 				arrayIndex = "Disable", -- too noisy
 				semicolon = "Disable", -- mostly wrong on invalid code
-			},
-			format = {
-				enable = true, -- using `stylua` instead
 			},
 			-- FIX https://github.com/sumneko/lua-language-server/issues/679#issuecomment-925524834
 			workspace = { checkThirdParty = "Disable" },
@@ -142,7 +134,7 @@ M.serverConfigs.nil_ls = {
 		["nil"] = {
 			formatting = {
 				command = {
-					"nixpkgs-fmt"
+					"alejandra"
 				}
 			}
 		}

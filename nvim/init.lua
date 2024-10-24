@@ -61,7 +61,7 @@ local function get_colorscheme()
 	end
 end
 
-vim.cmd.colorscheme("cyberdream")
+vim.cmd.colorscheme("rose-pine")
 
 require("configurations/configurations")
 require("configurations/mappings")

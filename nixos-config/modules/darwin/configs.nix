@@ -1,9 +1,9 @@
-{ pkgs
-, lib
-, config
-, ...
-}:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   users.users.simonemasoero = {
     name = "simonemasoero";
     home = "/Users/simonemasoero";
@@ -19,8 +19,14 @@
     '';
 
   fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
+
+  nix.settings = {
+    auto-optimise-store = true;
+    cores = 4;
+    experimental-features = "nix-command flakes";
+  };
 
   environment = {
     systemPackages = with pkgs; [
@@ -56,12 +62,8 @@
     nix-daemon.enable = true;
   };
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
-
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs = {
-    # nix-index.enable = true;
     zsh = {
       enable = true;
       variables = {
@@ -85,21 +87,20 @@
       # Following line should allow us to avoid a logout/login cycle
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
-    activationScripts.applications.text =
-      let
-        env = pkgs.buildEnv {
-          name = "system-applications";
-          paths = config.environment.systemPackages;
-          pathsToLink = "/Applications";
-        };
-      in
+    activationScripts.applications.text = let
+      env = pkgs.buildEnv {
+        name = "system-applications";
+        paths = config.environment.systemPackages;
+        pathsToLink = "/Applications";
+      };
+    in
       pkgs.lib.mkForce ''
-        # Set up applications 
+        # Set up applications
         echo "Setting up /Applications..." >&2
         rm -rf /Applications/Nix\ Apps
         mkdir -p /Applications/Nix\ Apps
         find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-        while read src; do 
+        while read src; do
           app_name=$(basename "$src")
           echo "Copying $src" >&2
           ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"

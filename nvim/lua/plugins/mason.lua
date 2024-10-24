@@ -29,7 +29,7 @@ return {
 		event = "VeryLazy",
 		dependencies = "williamboman/mason.nvim",
 		config = function()
-			local packages = require("configurations.lsp-servers").masonDependencies
+			local packages = require("configurations.lsp-servers").masonDependencies()
 			-- assert(#packages > 10, "Warning: in mason config, many packages would be uninstalled.")
 
 			-- FIX manually running `MasonToolsUpdate`, since `run_on_start` does

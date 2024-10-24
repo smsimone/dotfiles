@@ -1,7 +1,8 @@
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
-local opacity = 0.92
+local opacity = 0.96
 local transparent_bg = "rgba(22, 24, 26, " .. opacity .. ")"
+local features = require('theme-switch')
 
 
 --- @return string
@@ -23,37 +24,51 @@ local function scheme_for_appearance()
 end
 
 -- Font
-config.font = wezterm.font_with_fallback({
+config.font                         = wezterm.font_with_fallback({
 	{ family = 'Iosevka Nerd Font', weight = "Medium" },
-	-- "Segoe UI Emoji",
+	-- { family = 'JetBrainsMonoNL Nerd Font Mono' },
+	-- { family = 'CaskaydiaMono Nerd Font' },
+	-- { family = 'MonispaceNe Nerd Font', weight = "Medium" },
+	"Segoe UI Emoji",
 })
-config.font_size = 12
+config.font_size                    = 11.2
+config.line_height                  = 1.2
 
 -- Window
-config.initial_rows = 24
-config.initial_cols = 100
-config.window_decorations = "RESIZE"
-config.window_background_opacity = opacity
-config.window_close_confirmation = "NeverPrompt"
-config.win32_system_backdrop = "Acrylic"
-config.max_fps = 60
-config.animation_fps = 60
-config.cursor_blink_rate = 250
+config.initial_rows                 = 24
+config.initial_cols                 = 100
+config.window_decorations           = "RESIZE"
+config.window_background_opacity    = opacity
+config.window_close_confirmation    = "NeverPrompt"
+config.win32_system_backdrop        = "Acrylic"
+config.max_fps                      = 60
+config.animation_fps                = 60
+config.cursor_blink_rate            = 250
 
 -- Colors
-config.colors = require(scheme_for_appearance())
-config.color_scheme = scheme_for_appearance()
-config.force_reverse_video_cursor = true
+--config.colors                       = require(scheme_for_appearance())
+config.color_scheme = "rose-pine-moon"
+config.force_reverse_video_cursor   = true
 
 -- Tabs
-config.enable_tab_bar = true
+config.enable_tab_bar               = true
 config.hide_tab_bar_if_only_one_tab = true
-config.show_tab_index_in_tab_bar = false
-config.use_fancy_tab_bar = false
-config.colors.tab_bar = {
-	background = transparent_bg,
-	new_tab = { fg_color = config.colors.background, bg_color = config.colors.brights[6] },
-	new_tab_hover = { fg_color = config.colors.background, bg_color = config.colors.foreground },
+config.show_tab_index_in_tab_bar    = false
+config.use_fancy_tab_bar            = false
+--config.colors.tab_bar               = {
+--	background = transparent_bg,
+--	-- new_tab = { fg_color = config.colors.background, bg_color = config.colors.brights[6] },
+--	-- new_tab_hover = { fg_color = config.colors.background, bg_color = config.colors.foreground },
+--}
+
+config.keys                         = {
+	{
+		key = 'k',
+		mods = 'CMD',
+		action = wezterm.action_callback(function(window, pane)
+			features.theme_switcher(window, pane)
+		end)
+	},
 }
 
 wezterm.on("format-tab-title", function(tab, _, _, _, hover)
@@ -79,6 +94,5 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover)
 		{ Text = "█" },
 	}
 end)
-
 
 return config

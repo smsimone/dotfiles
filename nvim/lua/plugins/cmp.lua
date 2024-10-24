@@ -20,7 +20,14 @@ return {
 
 			local keys = {
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<tab>"] = cmp.mapping.select_next_item(),
+				["<tab>"] = cmp.mapping(function()
+					local entries = cmp.get_entries()
+					if #entries == 1 then
+						cmp.confirm({ select = true })
+					else
+						cmp.mapping.select_next_item()
+					end
+				end),
 				["<S-tab>"] = cmp.mapping.select_prev_item(),
 				["<C-d>"] = cmp.mapping.scroll_docs(4),
 				["<C-u>"] = cmp.mapping.scroll_docs(-4),
