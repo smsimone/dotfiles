@@ -25,7 +25,7 @@
     iftop
     btop
 
-    rustup
+    #rustup
     go
     wget
     nmap

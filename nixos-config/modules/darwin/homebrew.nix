@@ -26,6 +26,7 @@ _: {
       Magnet = 441258766;
       Xcode = 497799835;
       WindowsApp = 1295203466;
+      DevCleaner = 1388020431;
     };
   };
 }
