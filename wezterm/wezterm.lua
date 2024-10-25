@@ -7,8 +7,8 @@ local features = require('theme-switch')
 
 -- Font
 config.font                         = wezterm.font_with_fallback({
-	{ family = 'Iosevka Nerd Font', weight = "Medium" },
-	-- { family = 'JetBrainsMonoNL Nerd Font Mono' },
+	-- { family = 'Iosevka Nerd Font', weight = "Medium" },
+	{ family = 'JetBrainsMonoNL Nerd Font Mono' },
 	-- { family = 'CaskaydiaMono Nerd Font' },
 	-- { family = 'MonispaceNe Nerd Font', weight = "Medium" },
 	"Segoe UI Emoji",
@@ -28,7 +28,7 @@ config.animation_fps                = 60
 config.cursor_blink_rate            = 250
 
 -- Colors
-config.color_scheme = "rose-pine-moon"
+config.color_scheme                 = "rose-pine-moon"
 config.force_reverse_video_cursor   = true
 
 -- Tabs
