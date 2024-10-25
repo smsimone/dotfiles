@@ -10,7 +10,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-buffer" },
-			-- { "L3MON4D3/LuaSnip" },
+			{ "L3MON4D3/LuaSnip" },
 		},
 
 		config = function()
@@ -22,26 +22,21 @@ return {
 				["<tab>"] = cmp.mapping(function()
 					local entries = cmp.get_entries()
 					if #entries == 1 then
-						cmp.confirm({ select = true })
+						cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
 					else
 						cmp.select_next_item()
 					end
 				end),
 				["<S-tab>"] = cmp.mapping.select_prev_item(),
-				["<C-d>"] = cmp.mapping.scroll_docs(4),
-				["<C-u>"] = cmp.mapping.scroll_docs(-4),
-				["<C-q>"] = cmp.mapping.close(),
-				["<cr>"] = cmp.mapping.confirm({ select = true }),
+				["<cr>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
 			}
 
 			cmp.setup({
-				completion = {
-					keyword_length = 1,
-				},
+				completion = { keyword_length = 1, },
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
-						-- require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
 				window = {
@@ -107,12 +102,9 @@ return {
 	--	},
 	{
 		"windwp/nvim-autopairs",
-		dependencies = {
-			"benlubas/nvim-cmp",
-		},
+		dependencies = { "benlubas/nvim-cmp" },
 		config = function()
 			require("nvim-autopairs").setup({
-				-- map_bs = false,
 				check_ts = true,
 				fast_wrap = {
 					map = "<A-e>",
@@ -124,7 +116,6 @@ return {
 					manual_position = false,
 				},
 			})
-			-- If you want insert `(` after select function or method item
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
