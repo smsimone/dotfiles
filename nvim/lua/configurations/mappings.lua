@@ -4,13 +4,7 @@ register.setup({
 	n = {
 		w = { "<cmd>w<cr>", desc = "Save current buffer" },
 		W = { "<cmd>wall<cr>", desc = "Save all buffers" },
-		q = {
-			function()
-				-- TODO: check if current is the last buffer
-				vim.cmd [[confirm quit]]
-			end,
-			desc = "Closes current buffer"
-		},
+		q = { function() vim.cmd [[confirm quit]] end, desc = "Closes current buffer" },
 		Q = { "qall", desc = "Quit all buffers" },
 		b = {
 			V = { "vsplit", desc = "Split buffer vertically" },
@@ -21,6 +15,7 @@ register.setup({
 			b = { "FzfLua buffers", desc = "Find buffers" },
 			d = { "FzfLua diagnostics_workspace", desc = "Find diagnostics" },
 			w = { "FzfLua live_grep", desc = "Find words" },
+			l = { "FzfLua", desc = "FzfLua" }
 		},
 		g = {
 			r = { "FzfLua lsp_references", desc = "Find references", leader = "" },
@@ -43,6 +38,7 @@ register.setup({
 			i = { "LspInfo", desc = "Lsp info" },
 			s = { "FzfLua lsp_document_symbols", desc = "Document symbols" },
 			S = { "FzfLua lsp_workspace_symbols", desc = "Document symbols" },
+			a = { "FzfLua lsp_code_actions", desc = "Lsp code actions" },
 		},
 		D = {
 			t = { "DBUIToggle", desc = "Toggle DBUI" }

@@ -1,6 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		event = "VeryLazy",
 		init = function()
 			-- so mason packages are available before loading mason itself
 			vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH

@@ -1,6 +1,7 @@
 return {
 	-- syntax highlighting
 	{
+		event = "VeryLazy",
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
@@ -50,6 +51,7 @@ return {
 	-- code formatting
 	{
 		'stevearc/conform.nvim',
+		event = "VeryLazy",
 		config = function()
 			require("conform").setup({
 				format_on_save = function(bufnr)
@@ -82,5 +84,8 @@ return {
 	},
 
 	-- smart splits
-	"mrjones2014/smart-splits.nvim"
+	{
+		"mrjones2014/smart-splits.nvim",
+		event = "VeryLazy",
+	}
 }

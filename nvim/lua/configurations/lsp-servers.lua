@@ -17,6 +17,8 @@ local lspToMasonMap = {
 	gopls = { masonName = "gopls", masonIgnore = false },
 	dockerls = { masonName = "dockerfile-language-server", masonIgnore = false },
 	nil_ls = { masonName = "nil", masonIgnore = false },
+	dart = { masonName = "dart", masonIgnore = true },
+	clangd = { masonName = 'clangd', masonIgnore = false },
 }
 
 ---@module "lspconfig"
@@ -139,6 +141,19 @@ M.serverConfigs.nil_ls = {
 			}
 		}
 	},
+}
+
+--------------------------------------------------------------------------------
+-- DART
+M.serverConfigs.dart = {
+	cmd = { "dart", "language-server", "--protocol=lsp" },
+	filetypes = { "dart" },
+	settings = {
+		dart = {
+			completeFunctionCalls = true,
+			showTodos = true,
+		},
+	}
 }
 
 --------------------------------------------------------------------------------

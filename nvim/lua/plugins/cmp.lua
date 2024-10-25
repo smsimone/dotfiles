@@ -1,5 +1,3 @@
--- File with all things related to auto complete (excluding the LSP server stuff itself)
-
 local winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel"
 
 local ELLIPSIS_CHAR = "..."
@@ -12,8 +10,9 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-buffer" },
-			{ "L3MON4D3/LuaSnip" },
+			-- { "L3MON4D3/LuaSnip" },
 		},
+
 		config = function()
 			vim.api.nvim_set_hl(0, "CmpItemAbbr", {})
 			local cmp = require("cmp")
@@ -25,7 +24,7 @@ return {
 					if #entries == 1 then
 						cmp.confirm({ select = true })
 					else
-						cmp.mapping.select_next_item()
+						cmp.select_next_item()
 					end
 				end),
 				["<S-tab>"] = cmp.mapping.select_prev_item(),
@@ -42,7 +41,7 @@ return {
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+						-- require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
 				window = {
@@ -78,36 +77,34 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "path" },
-					-- { name = "luasnip" },
-					-- { name = "buffer" },
 				},
 			})
 		end,
 	},
-	{
-		"L3MON4D3/LuaSnip",
-		config = function()
-			local ls = require("luasnip")
-			ls.setup({
-				link_children = true,
-				link_roots = false,
-				keep_roots = false,
-				update_events = { "TextChanged", "TextChangedI" },
-			})
-			local c = ls.choice_node
-			ls.choice_node = function(pos, choices, opts)
-				P(opts)
-				if opts then
-					opts.restore_cursor = true
-				else
-					opts = { restore_cursor = true }
-				end
-				return c(pos, choices, opts)
-			end
-
-			vim.cmd.runtime({ args = { "lua/snippets/*.lua" }, bang = true }) -- load custom snippets
-		end,
-	},
+	--	{
+	--		"L3MON4D3/LuaSnip",
+	--		config = function()
+	--			local ls = require("luasnip")
+	--			ls.setup({
+	--				link_children = true,
+	--				link_roots = false,
+	--				keep_roots = false,
+	--				update_events = { "TextChanged", "TextChangedI" },
+	--			})
+	--			local c = ls.choice_node
+	--			ls.choice_node = function(pos, choices, opts)
+	--				P(opts)
+	--				if opts then
+	--					opts.restore_cursor = true
+	--				else
+	--					opts = { restore_cursor = true }
+	--				end
+	--				return c(pos, choices, opts)
+	--			end
+	--
+	--			vim.cmd.runtime({ args = { "lua/snippets/*.lua" }, bang = true }) -- load custom snippets
+	--		end,
+	--	},
 	{
 		"windwp/nvim-autopairs",
 		dependencies = {

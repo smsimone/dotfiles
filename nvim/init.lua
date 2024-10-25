@@ -46,21 +46,6 @@ require("lazy").setup(
 		},
 	})
 
---- @return string
-local function get_colorscheme()
-	local os_name = io.popen("uname"):read("*a")
-	if not os_name:find("Darwin") then
-		return 'cyberdream'
-	end
-
-	local interfaceStyle = io.popen("2>&1 defaults read -g AppleInterfaceStyle | tr -d '\\n'"):read("*a")
-	if interfaceStyle == 'Dark' then
-		return 'cyberdream'
-	else
-		return 'cyberdream'
-	end
-end
-
 vim.cmd.colorscheme("rose-pine")
 
 require("configurations/configurations")
