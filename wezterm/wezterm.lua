@@ -1,9 +1,7 @@
-local wezterm  = require('wezterm')
-local config   = wezterm.config_builder()
-local opacity  = 0.96
-local features = require('theme-switch')
-
-
+local wezterm                       = require('wezterm')
+local config                        = wezterm.config_builder()
+local opacity                       = 0.96
+local features                      = require('theme-switch')
 
 -- Font
 config.font                         = wezterm.font_with_fallback({
@@ -13,7 +11,7 @@ config.font                         = wezterm.font_with_fallback({
 	-- { family = 'MonispaceNe Nerd Font', weight = "Medium" },
 	"Segoe UI Emoji",
 })
-config.font_size                    = 11.2
+config.font_size                    = 12
 config.line_height                  = 1.2
 
 -- Window
