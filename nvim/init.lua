@@ -3,8 +3,6 @@ vim.g.maplocalleader = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	-- bootstrap lazy.nvim
-	-- stylua: ignore
 	vim.fn.system({
 		"git",
 		"clone",
@@ -24,7 +22,7 @@ require("lazy").setup(
 		},
 		checker = {
 			enabled = true,
-			concurrency = 8,
+			concurrency = 4,
 			notify = false
 		},
 		ui = {
@@ -50,3 +48,4 @@ vim.cmd.colorscheme("rose-pine")
 
 require("configurations/configurations")
 require("configurations/mappings")
+require("configurations/autocmds")
