@@ -1,14 +1,15 @@
-{...}: {
+{pkgs, ...}: let
+  generatedStarshipConfig =
+    pkgs.runCommand "generate-starship-config" {
+      buildInputs = [pkgs.starship];
+    } ''
+      mkdir -p $out
+      starship preset gruvbox-rainbow -o $out/starship.toml
+    '';
+  starshipConfigs = builtins.fromTOML (builtins.readFile "${generatedStarshipConfig}/starship.toml");
+in {
   programs.starship = {
     enable = true;
-    settings = {
-      add_newline = true;
-      command_timeout = 1300;
-      scan_timeout = 40;
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[✗](bold red) ";
-      };
-    };
+    settings = starshipConfigs;
   };
 }
