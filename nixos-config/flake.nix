@@ -50,14 +50,14 @@
       ];
     };
 
-    nixosConfigurations.rasp = {
-      system = "armv7l-linux";
-      user = "smaso";
-      modules = [
-        commonConfigs
-        raspConfigs
-        home-manager.nixosModules.home-manager
-      ];
-    };
+    #nixosConfigurations.rasp = {
+    #  system = "armv7l-linux";
+    #  user = "smaso";
+    #  modules = [
+    #    commonConfigs
+    #    raspConfigs
+    #    home-manager.nixosModules.home-manager
+    #  ];
+    #};
   };
 }

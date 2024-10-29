@@ -8,6 +8,7 @@
     name = "simonemasoero";
     home = "/Users/simonemasoero";
   };
+  home-manager.backupFileExtension = "hm-backup";
 
   nix.extraOptions =
     ''
@@ -60,18 +61,6 @@
   # Auto upgrade nix package and the daemon service.
   services = {
     nix-daemon.enable = true;
-  };
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  programs = {
-    zsh = {
-      enable = true;
-      variables = {
-        EDITOR = "nvim";
-        GOPATH = "/Users/simonemasoero/go";
-        GOBIN = "/Users/simonemasoero/go/bin";
-      };
-    };
   };
 
   # Set Git commit hash for darwin-version.

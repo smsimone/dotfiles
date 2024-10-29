@@ -6,6 +6,7 @@
     zoxide
     rbenv
     sqlc
+    neovim
 
     # archives
     zip

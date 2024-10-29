@@ -19,6 +19,8 @@ _: {
       "fvm"
       "mas"
       "pkgx"
+      "cocoapods"
+      "zsh-syntax-highlighting"
     ];
     masApps = {
       Telegram = 747648890;
