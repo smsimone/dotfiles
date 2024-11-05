@@ -33,6 +33,8 @@ register.setup({
 			f = { "<cmd>ToggleTerm direction=float name=terminal<cr>", desc = "Floating" },
 			h = { "<cmd>ToggleTerm direction=horizontal name=terminal<cr>", desc = "Horizontal terminal" },
 			v = { "<cmd>ToggleTerm direction=vertical name=terminal<cr>", desc = "Vertical terminal" },
+			s = { "<cmd>TodoShow<cr>", desc = "Show todos" },
+			a = { "<cmd>TodoAdd<cr>", desc = "Add new todo" },
 		},
 		l = {
 			i = { "LspInfo", desc = "Lsp info" },

@@ -1,37 +1,30 @@
 local Path = require('plenary.path')
 
---- @type configs
-local confs = {
-	item_symbols = {
-		completed = '❎',
-		todo = '❌',
-	},
-	reorder_elements = true,
-	text_ellipsis = '..',
-}
+local dir_path = Path:new("/Users/simonemasoero/Development/todolist.nvim")
 
-local dir = Path:new("/Users/simonemasoero/Development/todolist")
-if dir:exists() and dir:is_dir() then
+local configs = {}
+
+if dir_path:exists() and dir_path:is_dir() then
 	return {
-		dir = "~/Development/todolist/",
+		dir = "~/Development/todolist.nvim",
 		name = "todolist",
 		dependencies = {
+			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim"
 		},
 		config = function()
-			require('todolist').setup(confs)
+			require('todolist').setup(configs)
+		end
+	}
+else
+	return {
+		"smsimone/todolist.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require('todolist').setup(configs)
 		end
 	}
 end
-
-return {
-	"smsimone/todolist.nvim",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"MunifTanjim/nui.nvim"
-	},
-	config = function()
-		require('todolist').setup(confs)
-	end
-}

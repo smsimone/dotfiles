@@ -1,3 +1,18 @@
+function lsp_binary_exists(server_config)
+	local valid_config = server_config.document_config and
+	    server_config.document_config.default_config and
+	    type(server_config.document_config.default_config.cmd) == "table" and
+	    #server_config.document_config.default_config.cmd >= 1
+
+	if not valid_config then
+		return false
+	end
+
+	local binary = server_config.document_config.default_config.cmd[1]
+
+	return vim.fn.executable(binary) == 1
+end
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -55,9 +70,16 @@ return {
 			{ dynamicRegistration = false, lineFoldingOnly = true }
 
 			local myServerConfigs = require("configurations.lsp-servers").serverConfigs
-			for lspName, config in pairs(myServerConfigs) do
-				config.capabilities = capabilities
-				require("lspconfig")[lspName].setup(config)
+
+			local lspconfig = require('lspconfig')
+
+			for lsp, config in pairs(myServerConfigs) do
+				-- need to check for setup because some of
+				-- lsp configurations exist but have no setup (i.e. are deprecated)
+				if lsp_binary_exists(lspconfig[lsp]) then
+					config.capabilities = capabilities
+					lspconfig[lsp].setup(config)
+				end
 			end
 		end,
 		dependencies = {
