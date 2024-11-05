@@ -7,6 +7,8 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -14,6 +16,7 @@
     home-manager,
     nixpkgs,
     darwin,
+    spicetify-nix,
   } @ inputs: let
     commonConfigs = {
       imports = [
@@ -24,6 +27,7 @@
     darwinConfigs = {
       imports = [
         ./modules/darwin
+        spicetify-nix.nixosModules.default
       ];
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;

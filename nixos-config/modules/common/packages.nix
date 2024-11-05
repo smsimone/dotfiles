@@ -43,5 +43,10 @@
     delta
     postgresql
     alejandra
+    rainfrog
+
+    yazi
+    dbeaver-bin
+    spicetify-cli
   ];
 }

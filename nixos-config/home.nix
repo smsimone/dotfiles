@@ -1,17 +1,18 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   home.stateVersion = "23.05";
 
   imports = [./programs/starship.nix];
 
-  home.sessionVariables = {
+  home.sessionVariables = rec {
     GOPATH = "/Users/simonemasoero/go";
     GOBIN = "/Users/simonemasoero/go/bin";
     EDITOR = "nvim";
-    PATH = "$PATH:/Users/simonemasoero/fvm/default/bin";
+    PATH = "$PATH:/Users/simonemasoero/fvm/default/bin:${GOBIN}";
   };
 
   programs = {

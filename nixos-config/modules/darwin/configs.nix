@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   users.users.simonemasoero = {
@@ -27,6 +28,19 @@
     auto-optimise-store = true;
     cores = 4;
     experimental-features = "nix-command flakes";
+  };
+
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      powerBar
+      hidePodcasts
+      autoVolume
+      history
+    ];
+    colorScheme = "mocha";
   };
 
   environment = {
