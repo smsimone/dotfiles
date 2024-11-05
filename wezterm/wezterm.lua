@@ -36,9 +36,8 @@ config.tab_bar_at_bottom                          = true
 config.tab_and_split_indices_are_zero_based       = false
 config.use_fancy_tab_bar                          = false
 
-config.leader                                     = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 
-config.keys                                       = {
+config.keys = {
 	{
 		key = 't',
 		mods = 'LEADER',
@@ -93,47 +92,51 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
--------- PLUGINS
+-- Plugins
 
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-bar.apply_to_config(
-	config,
-	{
-		position = "bottom",
-		max_width = 32,
-		padding = {
-			left = 1,
-			right = 1,
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = 'rose-pine-moon',
+		color_overrides = {},
+		section_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
 		},
-		separator = {
-			space = 1,
-			left_icon = wezterm.nerdfonts.fa_long_arrow_right,
-			right_icon = wezterm.nerdfonts.fa_long_arrow_left,
-			field_icon = wezterm.nerdfonts.indent_line,
+		component_separators = {
+			left = wezterm.nerdfonts.pl_left_soft_divider,
+			right = wezterm.nerdfonts.pl_right_soft_divider,
 		},
-		modules = {
-			tabs = {
-				active_tab_fg = 4,
-				inactive_tab_fg = 6,
-			},
-			workspace = {
-				enabled = true,
-				icon = wezterm.nerdfonts.cod_window,
-				color = 8,
-			},
-			leader = {
-				enabled = true,
-				icon = wezterm.nerdfonts.oct_rocket,
-				color = 2,
-			},
-			pane = { enabled = false },
-			username = { enabled = false },
-			hostname = { enabled = false },
-			clock = { enabled = false },
-			cwd = { enabled = false },
-			spotify = { enabled = false },
+		tab_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
 		},
-	}
-)
+	},
+	sections = {
+		tabline_a = {},
+		tabline_b = {},
+		tabline_c = {},
+		tab_active = {
+			'[',
+			'index',
+			']',
+			{ 'cwd',     padding = { left = 1, right = 1 } },
+			{ 'process', padding = { left = 0, right = 1 } },
+		},
+		tab_inactive = {
+			'[',
+			'index',
+			']',
+			{ 'process', padding = { left = 1, right = 1 } },
+		},
+		tabline_x = { 'ram', 'cpu' },
+		tabline_y = {},
+		tabline_z = {},
+	},
+	extensions = {},
+})
+
+tabline.apply_to_config(config)
 
 return config
