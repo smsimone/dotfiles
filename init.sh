@@ -6,6 +6,10 @@ export STARSHIP_CONFIG="$SCRIPT_DIR/configs/starship.toml"
 scripts=($(find "$SCRIPT_DIR/scripts" -name '*.sh' | sort))
 for script in "${scripts[@]}"; do
 	if [ -f "$script" ]; then
-		source "$script"
+		source "$script" || echo "Failed to source $script"
 	fi
 done
+
+if command -v tmux &>/dev/null; then 
+	if [ "$TMUX" = "" ]; then tmux a || tmux; fi
+fi

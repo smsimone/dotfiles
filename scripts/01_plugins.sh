@@ -15,7 +15,6 @@ autoload -Uz _zinit
 zinit load zsh-users/zsh-autosuggestions
 zinit load zdharma-continuum/fast-syntax-highlighting
 zinit load Aloxaf/fzf-tab
-zinit load laggardkernel/zsh-tmux
 ######## PLUGINS
 
 eval "$(starship init zsh)"

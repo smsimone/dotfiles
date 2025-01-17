@@ -4,8 +4,8 @@ SOURCE_CONFIG_FILE="$SCRIPT_DIR/../configs/ghostty_config"
 
 STARTUP_SCRIPT="$SCRIPT_DIR/../configs/ghostty_startup.sh"
 
-if [ ! -f "$SOURCE_CONFIG_FILE" ]; then 
-	mkdir -p "$(dirname "$CONFIG_FILE")"
+if [ ! -f "$TARGET_CONFIG_FILE" ]; then 
+	mkdir -p "$(dirname "$TARGET_CONFIG_FILE")"
 	ln -s "$SOURCE_CONFIG_FILE" "$TARGET_CONFIG_FILE"
 	
 	jetbrains=$(ghostty +list-fonts | grep -E '^JetBrainsMono ')
