@@ -15,7 +15,7 @@ local lspToMasonMap = {
 	lua_ls = { masonName = "lua-language-server", masonIgnore = false, enabled = true },
 	yamlls = { masonName = "yaml-language-server", masonIgnore = false, enabled = false },
 	sqlls = { masonName = "sqlls", masonIgnore = false, enabled = false },
-	gopls = { masonName = "gopls", masonIgnore = false, enabled = false },
+	gopls = { masonName = "gopls", masonIgnore = false, enabled = true },
 	dockerls = { masonName = "dockerfile-language-server", masonIgnore = false, enabled = true },
 	nil_ls = { masonName = "nil", masonIgnore = false, enabled = false },
 	dart = { masonName = "dart", masonIgnore = true, enabled = false },
