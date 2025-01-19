@@ -16,4 +16,3 @@ macos-secure-input-indication = true
 window-colorspace = display-p3
 keybind = cmd+s>r=reload_config
 font-family = JetBrainsMono Nerd Font Mono
-font-family = JetBrainsMono Nerd Font Mono

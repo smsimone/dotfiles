@@ -80,6 +80,7 @@
   "sqldeveloper.telemetry.enabled": false,
 
   "json.maxItemsComputed": 10000,
-  "yaml.maxItemsComputed": 10000
+  "yaml.maxItemsComputed": 10000,
+  "explorer.confirmDelete": false
 }
 
