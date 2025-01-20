@@ -2,7 +2,7 @@
   // Theme
   "window.systemColorTheme": "auto",
   "window.autoDetectColorScheme": true,
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin-latte",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "window.commandCenter": false,
@@ -33,9 +33,10 @@
   "zenMode.hideStatusBar": true,
   "zenMode.silentNotifications": false,
 
-  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnSaveMode": "modifications",
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "never",
   },
 
   // Java configs
@@ -81,6 +82,13 @@
 
   "json.maxItemsComputed": 10000,
   "yaml.maxItemsComputed": 10000,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+
+  // Minimap configuration
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fit",
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.autohide": true
 }
 
