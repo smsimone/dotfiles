@@ -1,3 +1,5 @@
+#/usr/bin/env bash 
+
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 export STARSHIP_CONFIG=~/.config/starship.toml
@@ -10,6 +12,10 @@ for script in "${scripts[@]}"; do
 	fi
 done
 
-if command -v tmux &>/dev/null; then 
-	if [ "$TMUX" = "" ]; then tmux a || tmux; fi
+if [[ "$ENABLE_TMUX" == "1" ]];then
+	if [ "$TERM_PROGRAM" != "vscode" ]; then
+		if command -v tmux &>/dev/null; then 
+			if [ "$TMUX" = "" ]; then tmux a || tmux; fi
+		fi
+	fi
 fi

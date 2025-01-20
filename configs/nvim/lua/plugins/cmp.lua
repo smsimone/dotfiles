@@ -29,7 +29,7 @@ return {
 		keymap = {
 			['<tab>'] = { 'select_next', 'fallback' },
 			['<S-tab>'] = { 'select_prev', 'fallback' },
-			['<cr>'] = { 'accept' }
+			['<cr>'] = { 'accept', 'fallback' },
 		}
 	},
 	opts_extend = { 'sources.default' }
