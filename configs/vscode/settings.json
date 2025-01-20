@@ -2,7 +2,7 @@
   // Theme
   "window.systemColorTheme": "auto",
   "window.autoDetectColorScheme": true,
-  "workbench.iconTheme": "catppuccin-latte",
+  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "window.commandCenter": false,
