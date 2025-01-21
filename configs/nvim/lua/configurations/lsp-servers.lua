@@ -20,7 +20,8 @@ local lspToMasonMap = {
 	nil_ls = { masonName = "nil", masonIgnore = false, enabled = false },
 	dart = { masonName = "dart", masonIgnore = true, enabled = false },
 	clangd = { masonName = 'clangd', masonIgnore = false, enabled = false },
-	bashls = { masonName = 'bash-language-server', masonIgnore = false, enabled = false }
+	bashls = { masonName = 'bash-language-server', masonIgnore = false, enabled = true },
+	marksman = { masonName = 'marksman', masonIgnore = false, enabled = true }
 }
 
 ---@module "lspconfig"
@@ -159,6 +160,7 @@ M.serverConfigs.nil_ls = {
 }
 
 M.serverConfigs.bashls = {}
+M.serverConfigs.marksman = {}
 
 --------------------------------------------------------------------------------
 -- DART

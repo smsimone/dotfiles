@@ -12,7 +12,7 @@ if [[ "$ENABLE_TMUX" == "1" ]]; then
 	if [ ! -d "$TARGET_CONFIG_FOLDER" ]; then
 		ln -s "$SOURCE_CONFIG_FOLDER" "$TARGET_CONFIG_FOLDER"
 
-		[ -d  "$TARGET_CONFIG_FOLDER/plugins/tpm" ] && rm -rf "$TARGET_CONFIG_FOLDER/plugins/tpm"
+		[ -d "$TARGET_CONFIG_FOLDER/plugins/tpm" ] && rm -rf "$TARGET_CONFIG_FOLDER/plugins/tpm"
 		git clone https://github.com/tmux-plugins/tpm "$TARGET_CONFIG_FOLDER/plugins/tpm"
 		"$TARGET_CONFIG_FOLDER/plugins/tpm/bin/install_plugins"
 
@@ -24,7 +24,7 @@ if [[ "$ENABLE_TMUX" == "1" ]]; then
 		fi
 	fi
 
-	function apply_theme(){
+	function apply_theme() {
 		local from="$1"
 		local to="$2"
 

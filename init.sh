@@ -1,4 +1,4 @@
-#/usr/bin/env bash 
+#!/usr/bin/env bash
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
@@ -12,9 +12,9 @@ for script in "${scripts[@]}"; do
 	fi
 done
 
-if [[ "$ENABLE_TMUX" == "1" ]];then
+if [[ "$ENABLE_TMUX" == "1" ]]; then
 	if [ "$TERM_PROGRAM" != "vscode" ]; then
-		if command -v tmux &>/dev/null; then 
+		if command -v tmux &>/dev/null; then
 			if [ "$TMUX" = "" ]; then tmux a || tmux; fi
 		fi
 	fi

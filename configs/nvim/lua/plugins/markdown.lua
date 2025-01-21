@@ -10,7 +10,7 @@ return {
 		workspaces = {
 			{
 				name = "vault",
-				path = "~/obisian_vault/",
+				path = "~/obsidian_vault/",
 			},
 		},
 		picker = {
