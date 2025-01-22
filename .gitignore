@@ -1,0 +1,5 @@
+configs/tmux/plugins/
+configs/alacritty/*.toml
+!configs/alacritty/alacritty.toml
+./configs/yazi/plugins/
+./configs/yazi/flavors/
