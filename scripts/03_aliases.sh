@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# shellcheck source=/dev/null
+
 if ! command -v eza &>/dev/null; then brew install eza; fi
 if ! command -v lazygit &>/dev/null; then brew install lazygit; fi
 if ! command -v zoxide &>/dev/null; then # better cd (zoxide)

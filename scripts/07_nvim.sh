@@ -1,8 +1,11 @@
+#!/usr/bin/env bash
+# shellcheck source=/dev/null
+
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 SOURCE_CONFIG_FOLDER="$SCRIPT_DIR/../configs/nvim"
 TARGET_CONFIG_FOLDER="$HOME/.config/nvim"
 
-if ! command -v nvim &> /dev/null; then 
+if ! command -v nvim &>/dev/null; then
 	brew install neovim
 fi
 

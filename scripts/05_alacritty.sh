@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck source=/dev/null
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 SOURCE_CONFIG_FOLDER="$SCRIPT_DIR/../configs/alacritty"

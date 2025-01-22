@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck source=/dev/null
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 SOURCE_CONFIG_FOLDER="$SCRIPT_DIR/../configs/tmux"
@@ -19,9 +20,7 @@ if [[ "$ENABLE_TMUX" == "1" ]]; then
 		[ -d "$TARGET_CONFIG_FOLDER/plugins/catppuccin-tmux" ] && rm -rf "$TARGET_CONFIG_FOLDER/plugins/catppuccin-tmux"
 		git clone -b v2.1.2 https://github.com/catppuccin/tmux.git "$TARGET_CONFIG_FOLDER/plugins/catppuccin-tmux"
 
-		if [ ! -z "$TMUX" ]; then
-			source-file ~/.config/tmux/tmux.conf
-		fi
+		if [ -n "$TMUX" ]; then source-file ~/.config/tmux/tmux.conf; fi
 	fi
 
 	function apply_theme() {
@@ -29,7 +28,7 @@ if [[ "$ENABLE_TMUX" == "1" ]]; then
 		local to="$2"
 
 		exists=$(grep -w "$from" "$SOURCE_CONFIG_FOLDER/statusbar.conf")
-		if [ ! -z "$exists" ]; then
+		if [ -n "$exists" ]; then
 			sed -ie "s/$from/$to/g" "$SOURCE_CONFIG_FOLDER/statusbar.conf"
 			return 0
 		fi

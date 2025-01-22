@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# shellcheck source=/dev/null
+
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User"
 
@@ -11,8 +14,7 @@ TARGET_KEYBINDINGS="$VSCODE_CONFIG_DIR/keybindings.json"
 TARGET_SETTINGS="$VSCODE_CONFIG_DIR/settings.json"
 #TARGET_SNIPPETS_FOLDER="$VSCODE_CONFIG_DIR/snippets"
 
-
-if [ -d "$VSCODE_CONFIG_DIR" ]; then 
+if [ -d "$VSCODE_CONFIG_DIR" ]; then
 	[ -f "$TARGET_KEYBINDINGS" ] && rm "$TARGET_KEYBINDINGS"
 	ln -s "$SOURCE_KEYBINDINGS" "$TARGET_KEYBINDINGS"
 

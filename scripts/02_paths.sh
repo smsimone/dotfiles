@@ -1,6 +1,9 @@
+#!/usr/bin/env bash
+# shellcheck source=/dev/null
+
 paths=(
-  "/opt/homebrew/bin"
-  "$HOME/fvm/default/bin"
+	"/opt/homebrew/bin"
+	"$HOME/fvm/default/bin"
 )
 
 for item in "${paths[@]}"; do
