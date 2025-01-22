@@ -2,7 +2,7 @@
   // Theme
   "window.systemColorTheme": "auto",
   "window.autoDetectColorScheme": true,
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin-latte",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "window.commandCenter": false,
@@ -68,6 +68,8 @@
   "git.autofetchPeriod": 180,
   "git.fetchOnPull": true,
   "git.autorefresh": true,
+  "diffEditor.codeLens": true,
+  "diffEditor.renderSideBySide": true,
 
   "debug.inlineValues": "on",
   "[jsonc]": {
