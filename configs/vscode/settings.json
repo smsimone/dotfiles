@@ -24,15 +24,19 @@
   "editor.stickyScroll.scrollWithEditor": false,
 
   // Config per la zen mode
-  "zenMode.centerLayout": false,
+  "zenMode.centerLayout": true,
   "zenMode.hideActivityBar": true,
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": false,
   "zenMode.showTabs": "none",
-  "zenMode.fullScreen": true,
+  "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": true,
   "zenMode.silentNotifications": false,
 
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.filePath": "last",
+  
+  "workbench.editor.showTabs": "none",
   "editor.formatOnSaveMode": "modifications",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
@@ -91,6 +95,6 @@
   "editor.minimap.size": "fit",
   "editor.minimap.showSlider": "always",
   "editor.minimap.maxColumn": 80,
-  "editor.minimap.autohide": true
+  "editor.minimap.autohide": true,
 }
 

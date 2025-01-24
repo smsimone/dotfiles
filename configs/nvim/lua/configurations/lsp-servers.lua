@@ -19,7 +19,7 @@ local lspToMasonMap = {
 	dockerls = { masonName = "dockerfile-language-server", masonIgnore = false, enabled = true },
 	nil_ls = { masonName = "nil", masonIgnore = false, enabled = false },
 	dart = { masonName = "dart", masonIgnore = true, enabled = false },
-	clangd = { masonName = 'clangd', masonIgnore = false, enabled = false },
+	clangd = { masonName = 'clangd', masonIgnore = false, enabled = true },
 	bashls = { masonName = 'bash-language-server', masonIgnore = false, enabled = true },
 	marksman = { masonName = 'marksman', masonIgnore = false, enabled = true }
 }
