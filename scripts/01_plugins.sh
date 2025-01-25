@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # shellcheck source=/dev/null
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

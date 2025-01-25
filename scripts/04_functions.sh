@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # shellcheck source=/dev/null
 
 # Connects to ssh by injecting the password automatically using sshpass

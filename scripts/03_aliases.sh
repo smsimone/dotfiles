@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # shellcheck source=/dev/null
 
 if ! command -v eza &>/dev/null; then brew install eza; fi

@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # shellcheck source=/dev/null
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
