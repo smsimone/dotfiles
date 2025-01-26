@@ -1,29 +1,24 @@
 {
-  // Theme
   "window.systemColorTheme": "auto",
   "window.autoDetectColorScheme": true,
-  "workbench.iconTheme": "catppuccin-latte",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
+  "workbench.preferredLightColorTheme": "Tokyo Night Light",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
   "window.dialogStyle": "custom",
-
-  // Catppuccin customizations
   "catppuccin.bracketMode": "neovim",
   "catppuccin.italicComments": true,
   "catppuccin.italicKeywords": true,
   "catppuccin.extraBordersEnabled": true,
-
-  // Editor configs
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontFamily": "MonaspiceNE Nerd Font",
   "editor.fontLigatures": false,
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.maxLineCount": 3,
   "editor.stickyScroll.scrollWithEditor": false,
-
-  // Config per la zen mode
   "zenMode.centerLayout": true,
   "zenMode.hideActivityBar": true,
   "zenMode.hideLineNumbers": false,
@@ -32,31 +27,25 @@
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": true,
   "zenMode.silentNotifications": false,
-
+  "workbench.startupEditor": "newUntitledFile",
+  "window.restoreWindows": "none",
   "breadcrumbs.enabled": true,
   "breadcrumbs.filePath": "last",
-  
   "workbench.editor.showTabs": "none",
   "editor.formatOnSaveMode": "modifications",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "never",
+    "source.organizeImports": "never"
   },
-
-  // Java configs
   "java.compile.nullAnalysis.mode": "automatic",
   "quarkus.tools.debug.terminateProcessOnExit": "Always terminate",
   "quarkus.tools.alwaysShowWelcomePage": false,
-
-  // Vim configs
   "vim.smartRelativeLine": true,
   "vim.autoindent": true,
   "vim.leader": " ",
   "vim.vimrc.path": "~/.config/code.vimrc",
   "vim.vimrc.enable": true,
   "vim.useSystemClipboard": true,
-
-  // Explorer
   "explorer.autoReveal": true,
   "explorer.compactFolders": true,
   "explorer.decorations.badges": false,
@@ -66,35 +55,95 @@
   "workbench.list.openMode": "doubleClick",
   "workbench.list.smoothScrolling": true,
   "workbench.activityBar.location": "bottom",
-
-  // Git configurations
   "git.autofetch": true,
   "git.autofetchPeriod": 180,
   "git.fetchOnPull": true,
   "git.autorefresh": true,
   "diffEditor.codeLens": true,
   "diffEditor.renderSideBySide": true,
-
   "debug.inlineValues": "on",
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
-
-  // Telemetria
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "error",
   "gitlens.telemetry.enabled": false,
   "sqldeveloper.telemetry.enabled": false,
-
   "json.maxItemsComputed": 10000,
   "yaml.maxItemsComputed": 10000,
   "explorer.confirmDelete": false,
-
-  // Minimap configuration
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.size": "fit",
-  "editor.minimap.showSlider": "always",
-  "editor.minimap.maxColumn": 80,
-  "editor.minimap.autohide": true,
+  "editor.minimap.enabled": false,
+  "workbench.tips.enabled": false,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<space>"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
+    }
+  ],
+  "whichkey.bindings": [
+    {
+      "key": "w",
+      "name": "Save file",
+      "type": "command",
+      "command": "workbench.action.files.save"
+    },
+    {
+      "key": "W",
+      "name": "Save all files",
+      "type": "command",
+      "command": "workbench.action.files.saveAll"
+    },
+    {
+      "key": "f",
+      "name": "File..",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "w",
+          "name": "[w] Find word",
+          "type": "command",
+          "command": "fuzzySearch.activeTextEditor"
+        }
+      ]
+    },
+    {
+      "key": "q",
+      "name": "Quit current buffer",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+    },
+    {
+      "key": "b",
+      "name": "Buffers",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "V",
+          "name": "Vertical split",
+          "type": "command",
+          "command": "workbench.action.splitEditor"
+        },
+        {
+          "key": "S",
+          "name": "Horizontal split",
+          "type": "command",
+          "command": "workbench.action.splitEditorDown"
+        }
+      ]
+    }
+  ]
 }
-
