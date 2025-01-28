@@ -35,26 +35,6 @@ ssh_with_pass() {
 	sshpass -p "$password" ssh "$server"
 }
 
-exportf() {
-	export $(echo $1)="$(whence -f $1 | sed -e "s/$1 //")"
-}
-
-__update_project() {
-	local project_folder="$1"
-	if [ -z "$project_folder" ]; then return 1; fi
-	if [ ! -d "$project_folder" ]; then return 1; fi
-	pushd "$project_folder" &>/dev/null || return 1
-	if grep -q "no branch" < <(cd "$project_folder" && git branch); then
-		# the project is not connected to a branch
-		return 1
-	fi
-
-	result="$(git pull | head -1)"
-	echo "$project_folder -> $result"
-	popd &>/dev/null || return 1
-	return 0
-}
-
 # Finds all the git projects in the given directory and pulls their updates
 #
 # Usage:
@@ -64,7 +44,9 @@ pull_projects() {
 
 	if [ -z "$folder" ]; then folder="$(pwd)"; fi
 	if [ -z "$PROCESS_COUNT" ]; then PROCESS_COUNT=5; fi
-	echo "Using $PROCESS_COUNT processes"
 
-	find "$folder" -type d -name '.git' -exec bash -c 'dirname $0' {} \; | xargs -P "$PROCESS_COUNT" -I% lua "$LUA_SCRIPTS/update_project.lua" "%"
+	local projects=($(find "$folder" -type d -name '.git' -exec bash -c 'dirname "$(readlink -f $0)"' {} \;))
+	pushd "$LUA_SCRIPTS" &>/dev/null
+	printf "%s\n" "${projects[@]}" | xargs -P "$PROCESS_COUNT" -I% lua "$LUA_SCRIPTS/update_project.lua" "%"
+	popd &>/dev/null
 }
