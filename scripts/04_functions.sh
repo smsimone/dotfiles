@@ -2,7 +2,6 @@
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 LUA_SCRIPTS="$SCRIPT_DIR/../lua_scripts"
-PROCESS_COUNT=""
 
 # Connects to ssh by injecting the password automatically using sshpass
 #
@@ -40,13 +39,36 @@ ssh_with_pass() {
 # Usage:
 # pull_projects [folder]
 pull_projects() {
-	local folder="$1"
+	local folder=""
+	local process_count="5"
 
-	if [ -z "$folder" ]; then folder="$(pwd)"; fi
-	if [ -z "$PROCESS_COUNT" ]; then PROCESS_COUNT=5; fi
+	while getopts "p:f:" opt; do
+		case $opt in
+		p)
+			process_count=$OPTARG
+			;;
+		f)
+			folder=$OPTARG
+			if [ ! -d "$folder" ]; then
+				echo "the given path should point to a folder"
+				return 1
+			fi
+			;;
+		\?)
+			echo "Usage: $0 -p path -f folder"
+			return 1
+			;;
+		esac
+	done
+	if [ -z "$folder" ]; then
+		echo "Missing target folder"
+		echo "--------"
+		echo "Usage: $0 -p path -f folder"
+		return 1
+	fi
 
 	local projects=($(find "$folder" -type d -name '.git' -exec bash -c 'dirname "$(readlink -f $0)"' {} \;))
 	pushd "$LUA_SCRIPTS" &>/dev/null
-	printf "%s\n" "${projects[@]}" | xargs -P "$PROCESS_COUNT" -I% lua "$LUA_SCRIPTS/update_project.lua" "%"
+	printf "%s\n" "${projects[@]}" | xargs -P "$process_count" -I% lua "$LUA_SCRIPTS/update_project.lua" "%"
 	popd &>/dev/null
 }
