@@ -15,7 +15,7 @@ return {
 		},
 		fuzzy = {
 			use_proximity = true,
-			use_typo_resistance = true,
+			-- use_typo_resistance = true,
 		},
 		signature = { enabled = true },
 		completion = {

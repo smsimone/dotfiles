@@ -27,7 +27,7 @@
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": true,
   "zenMode.silentNotifications": false,
-  "workbench.startupEditor": "newUntitledFile",
+  "workbench.startupEditor": "welcomePage",
   "window.restoreWindows": "none",
   "breadcrumbs.enabled": true,
   "breadcrumbs.filePath": "last",
