@@ -14,9 +14,21 @@
 --		})
 --	end
 --}
-
+--
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
-	priority = 1000
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.zenbones_darken_comments = 45
+			vim.g.zenbones_compat = 1
+			-- vim.cmd.colorscheme('zenbones')
+		end
+	}
 }

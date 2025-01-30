@@ -4,24 +4,38 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 SOURCE_CONFIG_FOLDER="$SCRIPT_DIR/../configs/alacritty"
 TARGET_CONFIG_FOLDER="$HOME/.config/alacritty"
 
+__themes=(
+	"https://raw.githubusercontent.com/zenbones-theme/zenbones.nvim/refs/heads/main/extras/alacritty/zenbones_dark.toml"
+	"https://raw.githubusercontent.com/zenbones-theme/zenbones.nvim/refs/heads/main/extras/alacritty/zenbones_light.toml"
+	"https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml"
+	"https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml"
+)
+
 if [ ! -d "$TARGET_CONFIG_FOLDER" ]; then
 	ln -s "$SOURCE_CONFIG_FOLDER" "$TARGET_CONFIG_FOLDER"
 fi
 
+download_themes() {
+	for theme in "${__themes[@]}"; do
+		local theme_name="$(echo "$theme" | awk -F'/' '{print $(NF)}')"
+		if [ ! -f "$TARGET_CONFIG_FOLDER/$theme_name" ]; then
+			curl -L0 "$theme" >"${TARGET_CONFIG_FOLDER}/${theme_name}"
+		fi
+	done
+}
+
 apply_theme() {
 	local theme_name="$1"
-	if [ ! -f "$TARGET_CONFIG_FOLDER/catppuccin-${theme_name}.toml" ]; then
-		curl -LO --output-dir "$TARGET_CONFIG_FOLDER" "https://github.com/catppuccin/alacritty/raw/main/catppuccin-${theme_name}.toml"
-	fi
-
-	sanitized=$(echo "$TARGET_CONFIG_FOLDER/catppuccin-${theme_name}.toml" | sed 's/\//\\\//g')
+	sanitized=$(echo "$TARGET_CONFIG_FOLDER/${theme_name}.toml" | sed 's/\//\\\//g')
 	sed -ie "s/^import.*/import=[\"$sanitized\"]/" "$SOURCE_CONFIG_FOLDER/alacritty.toml"
 	if [ -f "$SOURCE_CONFIG_FOLDER/alacritty.tomle" ]; then rm "$SOURCE_CONFIG_FOLDER/alacritty.tomle"; fi
 }
 
+download_themes
+
 brightness=$(defaults read -g AppleInterfaceStyle 2>&1 | tr -d '\n')
 if [[ "$brightness" == "Dark" ]]; then
-	apply_theme 'mocha'
+	apply_theme 'zenbones_dark'
 else
-	apply_theme 'latte'
+	apply_theme 'zenbones_light'
 fi

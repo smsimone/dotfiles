@@ -6,7 +6,7 @@ export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 export STARSHIP_CONFIG="$SCRIPT_DIR/configs/starship.toml"
 
 if [[ "$ENABLE_TMUX" == "1" ]]; then
-	if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+	if [[ "$TERM_PROGRAM" == "vscode" ]] || [[ "$TERM_PROGRAM" == "ghostty" ]] || [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
 		# Avoid using tmux in vscode
 		export TMUX_AUTOSTART=false
 	fi
