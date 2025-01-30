@@ -5,8 +5,6 @@ SOURCE_CONFIG_FOLDER="$SCRIPT_DIR/../configs/alacritty"
 TARGET_CONFIG_FOLDER="$HOME/.config/alacritty"
 
 __themes=(
-	"https://raw.githubusercontent.com/zenbones-theme/zenbones.nvim/refs/heads/main/extras/alacritty/zenbones_dark.toml"
-	"https://raw.githubusercontent.com/zenbones-theme/zenbones.nvim/refs/heads/main/extras/alacritty/zenbones_light.toml"
 	"https://github.com/catppuccin/alacritty/raw/main/catppuccin-latte.toml"
 	"https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml"
 )
@@ -35,7 +33,7 @@ download_themes
 
 brightness=$(defaults read -g AppleInterfaceStyle 2>&1 | tr -d '\n')
 if [[ "$brightness" == "Dark" ]]; then
-	apply_theme 'zenbones_dark'
+	apply_theme 'catppuccin-mocha'
 else
-	apply_theme 'zenbones_light'
+	apply_theme 'catppuccin-latte'
 fi

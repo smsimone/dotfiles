@@ -53,25 +53,36 @@ local function execute(cmd)
 	return s
 end
 
+--- @class Themes
+--- @field dark string
+--- @field light string
+local themes = {
+	light = "catppuccin-latte",
+	dark = "catppuccin-mocha"
+}
+
 --- Returns the theme based on current system brightness
 --- @return string
 local function get_theme()
 	-- if the current theme is light, this snippet does not return anything
 	if execute("defaults read -g AppleInterfaceStyle 2>&1 | tr -d '\n'") == 'Dark' then
-		return 'catppuccin-mocha'
+		-- vim.o.background = "dark"
+		return themes.dark
 	else
-		return 'catppuccin-latte'
+		-- vim.o.background = "light"
+		return themes.light
 	end
 end
 
 local term_program = execute("echo $TERM_PROGRAM | tr -d '\n'")
 
 if term_program == 'Apple_Terminal' then
-	vim.cmd.colorscheme('wildcharm')
-elseif term_program == 'ghostty' or term_program == 'tmux' then
+	vim.cmd.colorscheme(themes.light)
+	vim.o.background = "light"
+elseif term_program == 'tmux' then
 	vim.cmd.colorscheme(get_theme())
 else
-	vim.cmd.colorscheme("catppuccin-mocha")
+	vim.cmd.colorscheme(themes.dark)
 end
 
 require("configurations/configurations")

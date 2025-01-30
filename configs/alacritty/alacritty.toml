@@ -1,6 +1,6 @@
 [general]
 live_config_reload=true
-import=["/Users/antlia/.config/alacritty/zenbones_light.toml"]
+import=["/Users/antlia/.config/alacritty/catppuccin-mocha.toml"]
 
 [window]
 decorations="Buttonless"
