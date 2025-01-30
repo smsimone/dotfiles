@@ -9,7 +9,7 @@ startup_mode="Windowed"
 option_as_alt = "OnlyLeft"
 
 [font]
-size=18
+size=12
 
 [font.normal]
 family="MonaspiceNE Nerd Font"
