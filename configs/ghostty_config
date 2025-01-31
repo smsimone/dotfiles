@@ -22,8 +22,10 @@ unfocused-split-opacity = 0.7
 unfocused-split-fill = #000000
 
 keybind = cmd+s>r=reload_config
-keybind = ctrl+b>s=new_split:down
-keybind = ctrl+b>v=new_split:right
+keybind = ctrl+b>k=new_split:up
+keybind = ctrl+b>j=new_split:down
+keybind = ctrl+b>l=new_split:right
+keybind = ctrl+b>h=new_split:left
 
 keybind = ctrl+l=goto_split:right
 keybind = ctrl+k=goto_split:up
