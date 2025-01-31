@@ -11,3 +11,9 @@ if [ ! -f "$TARGET_CONFIG_FILE" ]; then
 		echo "font-family = $jetbrains" >>"$SOURCE_CONFIG_FILE"
 	fi
 fi
+
+setopt VI
+
+# In order to make back deletion after getting in insert mode
+# https://github.com/ghostty-org/ghostty/discussions/3487
+bindkey -v '^?' backward-delete-char
