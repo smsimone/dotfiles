@@ -58,7 +58,7 @@ end
 --- @field light string
 local themes = {
 	light = "catppuccin-latte",
-	dark = "catppuccin-mocha"
+	dark = "vague"
 }
 
 --- Returns the theme based on current system brightness
@@ -79,10 +79,8 @@ local term_program = execute("echo $TERM_PROGRAM | tr -d '\n'")
 if term_program == 'Apple_Terminal' then
 	vim.cmd.colorscheme(themes.light)
 	vim.o.background = "light"
-elseif term_program == 'tmux' then
-	vim.cmd.colorscheme(get_theme())
 else
-	vim.cmd.colorscheme(themes.dark)
+	vim.cmd.colorscheme(get_theme())
 end
 
 require("configurations/configurations")

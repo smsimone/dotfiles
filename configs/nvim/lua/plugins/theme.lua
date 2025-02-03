@@ -30,5 +30,13 @@ return {
 			vim.g.zenbones_compat = 1
 			-- vim.cmd.colorscheme('zenbones')
 		end
-	}
+	},
+	{
+		"vague2k/vague.nvim",
+		config = function()
+			require("vague").setup({
+				-- optional configuration here
+			})
+		end
+	},
 }

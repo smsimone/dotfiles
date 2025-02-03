@@ -13,7 +13,6 @@ macos-titlebar-style = transparent
 macos-option-as-alt = false
 macos-auto-secure-input = true
 macos-secure-input-indication = true
-window-decoration = none
 window-colorspace = display-p3
 font-family = MonaspiceNE Nerd Font
 confirm-close-surface = false

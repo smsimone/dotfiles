@@ -21,7 +21,8 @@ local lspToMasonMap = {
 	dart = { masonName = "dart", masonIgnore = true, enabled = false },
 	clangd = { masonName = 'clangd', masonIgnore = false, enabled = true },
 	bashls = { masonName = 'bash-language-server', masonIgnore = false, enabled = true },
-	marksman = { masonName = 'marksman', masonIgnore = false, enabled = true }
+	marksman = { masonName = 'marksman', masonIgnore = false, enabled = true },
+	pylsp = { masonName = 'python-lsp-server', masonIgnore = false, enabled = true },
 }
 
 ---@module "lspconfig"
@@ -161,6 +162,7 @@ M.serverConfigs.nil_ls = {
 
 M.serverConfigs.bashls = {}
 M.serverConfigs.marksman = {}
+M.serverConfigs.pylsp = {}
 
 --------------------------------------------------------------------------------
 -- DART

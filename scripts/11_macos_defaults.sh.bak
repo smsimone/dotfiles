@@ -1,0 +1,25 @@
+if [ "$(uname -o)" != "Darwin" ]; then
+	return 0
+fi
+
+apply_macos_defaults() {
+	defaults write com.apple.dock "tilesize" -int "36"
+	defaults write com.apple.dock "orientation" -string "left"
+	defaults write com.apple.dock "show-recents" -bool "false"
+
+	defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" # list view
+	defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"    # folders on top
+
+	defaults write com.apple.finder "CreateDesktop" -bool "false"                   # hides all the icons on the desktop
+	defaults write com.apple.finder "ShowHardDrivesOnDesktop" -bool "false"         # hides all the disks from desktop
+	defaults write com.apple.finder "ShowExternalHardDrivesOnDesktop" -bool "false" # hides all the external drives from the desktop
+
+	defaults delete com.apple.menuextra.clock "DateFormat" # sets the datetime format on the top bar
+
+	defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "0" # touchpad click weight
+
+	defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "false" # repeat character on key down
+	defaults write NSGlobalDomain AppleKeyboardUIMode -int "2"             # navigation with keyboard in alerts
+
+	killall Dock
+}
