@@ -72,3 +72,15 @@ pull_projects() {
 	printf "%s\n" "${projects[@]}" | xargs -P "$process_count" -I% lua "$LUA_SCRIPTS/update_project.lua" "%"
 	popd &>/dev/null
 }
+
+clean_ios_project() {
+	if [ ! -f './pubspec.yaml' ]; then
+		echo "This script should be run in the flutter project root folder"
+		return 1
+	fi
+	(
+		cd ios
+		rm Podfile.lock
+		pod deintegrate && pod repo update && pod install
+	)
+}
