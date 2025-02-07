@@ -15,9 +15,13 @@ alias ls='eza'
 alias lg='lazygit'
 alias cd='z'
 alias cat='bat'
-alias nnvim='nvim "$(fzf)"'
 alias upgrade='brew update && brew upgrade && brew cleanup'
 alias zi='__zoxide_zi'
+
+unset nnvim
+nnvim() {
+	nvim "$(fzf --preview "cat {}")"
+}
 
 if ! command -v fd &>/dev/null; then brew install fd; fi
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
