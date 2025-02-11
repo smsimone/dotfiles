@@ -26,5 +26,6 @@ zsh-defer zinit load zpm-zsh/tmux
 ######## PLUGINS
 
 eval "$(starship init zsh)"
-if command -v fzf &> /dev/null; then eval "$(fzf --zsh)"; fi
+#if command -v fzf &> /dev/null; then eval "$(fzf --zsh)"; fi
 if command -v zoxide &> /dev/null; then eval "$(zoxide init zsh)"; fi
+if command -v tv &>/dev/null; then eval "$(tv init zsh)"; fi
