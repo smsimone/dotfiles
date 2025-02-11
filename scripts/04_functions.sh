@@ -16,7 +16,7 @@ LUA_SCRIPTS="$SCRIPT_DIR/../lua_scripts"
 ssh_with_pass() {
 	if ! command -v sshpass; then
 		echo "Missing sshpass. You should install it first."
-		exit 1
+		return 1
 	fi
 
 	local server="$1"
@@ -27,8 +27,8 @@ ssh_with_pass() {
 
 	config=$(awk "/Host $server/" RS= "$HOME/.ssh/config")
 	if [ -z "$config" ]; then
-		echo "ssh config not found"
-		exit 1
+		echo "ssh config not found for server '$server'"
+		return 1
 	fi
 	password=$(echo "$config" | grep "Pass" | awk -F' ' '{print $2}')
 	sshpass -p "$password" ssh "$server"
