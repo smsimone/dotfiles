@@ -21,6 +21,9 @@ return {
 		name = "catppuccin",
 	},
 	{
+		"rjshkhr/shadow.nvim",
+	},
+	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		lazy = false,

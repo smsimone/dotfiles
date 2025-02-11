@@ -1,41 +1,28 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
-local opacity = 1
 
---- Get the current operating system
---- @return "windows"| "linux" | "macos"
-local function get_os()
-	local bin_format = package.cpath:match("%p[\\|/]?%p(%a+)")
-	if bin_format == "so" then
-		return "linux"
-	elseif bin_format == "dylib" then
-		return "macos"
+local function scheme_for_appearance(appearance)
+	print("appearance: " .. appearance)
+	if appearance:find "Dark" then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
 	end
-	return "windows"
 end
 
-local host_os = get_os()
-local emoji_font = "Segoe UI Emoji"
 
 config.font = wezterm.font_with_fallback({
-	{
-		family = "MonaspiceNE Nerd Font",
-		weight = "Regular",
-	},
-	emoji_font,
+	{ family = "MonaspiceNE Nerd Font", weight = "Regular" },
+	"Segoe UI Emoji", -- emoji font
 })
 config.font_size = 12
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
-config.colors = {
-	foreground = '#cdcdcd',
-	background = '#141415',
-}
 config.force_reverse_video_cursor = true
 
 -- Window configuration
 config.window_decorations = "RESIZE"
-config.window_background_opacity = opacity
+config.window_background_opacity = 1
 config.window_background_image = (os.getenv("WEZTERM_CONFIG_FILE") or ""):gsub("wezterm.lua", "bg-blurred.png")
 config.window_close_confirmation = "NeverPrompt"
 
