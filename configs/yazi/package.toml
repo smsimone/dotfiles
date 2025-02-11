@@ -1,5 +1,19 @@
-[plugin]
-deps = [{ use = "llanosrocas/githead", rev = "45bd61e" }, { use = "yazi-rs/plugins:git", rev = "600614a" }]
+[[plugin.deps]]
+use = "llanosrocas/githead"
+rev = "45bd61e"
+hash = "49f2baf77a7e779d06b7521a02ebc253"
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fc8eeaa" }, { use = "yazi-rs/flavors:catppuccin-latte", rev = "fc8eeaa" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "8945e54"
+hash = "771f18427fb75fb19990ce602bb322f4"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "fd85060"
+hash = "c40e434318a8ceffd01842f8dfb2390e"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "fd85060"
+hash = "8c24a91f7e6abb2a9ac268bfbd356e77"

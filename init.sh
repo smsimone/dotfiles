@@ -14,6 +14,10 @@ export TMUX_AUTOSTART=false
 
 find "$SCRIPT_DIR/scripts" -name '*.sh' | sort | while read -r script; do
 	if [ -f "$script" ]; then
-		source "$script" || echo "Failed to source $script"
+		if command -v zsh-defer &>/dev/null; then
+			zsh-defer source "$script" || echo "Failed to source $script"
+		else
+			source "$script" || echo "Failed to source $script"
+		fi
 	fi
 done
