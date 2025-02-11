@@ -25,7 +25,6 @@ config.font = wezterm.font_with_fallback({
 	emoji_font,
 })
 config.font_size = 12
-
 config.color_scheme = 'Catppuccin Mocha'
 
 config.colors = {
@@ -50,5 +49,17 @@ config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.show_tab_index_in_tab_bar = true
 config.use_fancy_tab_bar = false
+
+-- Keybindings
+local act = wezterm.action
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = {
+	{ key = "l", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "j", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = 'l', mods = 'CTRL',   action = act.ActivatePaneDirection 'Right' },
+	{ key = 'h', mods = 'CTRL',   action = act.ActivatePaneDirection 'Left' },
+	{ key = 'k', mods = 'CTRL',   action = act.ActivatePaneDirection 'Up' },
+	{ key = 'j', mods = 'CTRL',   action = act.ActivatePaneDirection 'Down' },
+}
 
 return config
