@@ -36,9 +36,6 @@ local extraDependencies = {
 	"shfmt", -- used by bashls for formatting
 	"shellcheck", -- used by bashls/efm for diagnostics, PENDING https://github.com/bash-lsp/bash-language-server/issues/663
 	"stylua", -- efm
-	-- "markdown-toc", -- efm
-	-- "markdownlint", -- efm
-	-- "gopls",
 }
 
 ---@return string[]

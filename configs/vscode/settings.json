@@ -51,7 +51,7 @@
   "explorer.compactFolders": true,
   "explorer.decorations.badges": false,
   "explorer.autoOpenDroppedFile": false,
-  "explorer.excludeGitIgnore": true,
+  "explorer.excludeGitIgnore": false,
   "workbench.editor.enablePreview": false,
   "workbench.list.openMode": "doubleClick",
   "workbench.list.smoothScrolling": true,
@@ -173,5 +173,16 @@
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
     "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
     "*.dart": "${capture}.g.dart,${capture}.freezed.dart"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   }
 }
