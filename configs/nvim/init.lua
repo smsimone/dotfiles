@@ -58,7 +58,7 @@ end
 --- @field light string
 local themes = {
 	light = "catppuccin-latte",
-	dark = "vague"
+	dark = "catppuccin-mocha"
 }
 
 --- Returns the theme based on current system brightness
