@@ -11,7 +11,7 @@ return {
 		},
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
-			cmdline = {}
+
 		},
 		fuzzy = {
 			use_proximity = true,
