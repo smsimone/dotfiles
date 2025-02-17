@@ -32,7 +32,7 @@
   "window.restoreWindows": "none",
   "breadcrumbs.enabled": true,
   "breadcrumbs.filePath": "last",
-  "workbench.editor.showTabs": "none",
+  "workbench.editor.showTabs": "multiple",
   "editor.formatOnSaveMode": "modifications",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
