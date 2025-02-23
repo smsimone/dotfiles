@@ -6,22 +6,15 @@ return {
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
 	opts = {
-		appearance = {
-			nerd_font_variant = 'mono',
-		},
-		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
-
-		},
-		fuzzy = {
-			use_proximity = true,
-			-- use_typo_resistance = true,
-		},
+		cmdline = { enabled = false },
+		appearance = { nerd_font_variant = 'mono' },
+		sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+		fuzzy = { use_proximity = true },
 		signature = { enabled = true },
 		completion = {
 			accept = {
 				auto_brackets = {
-					enabled = true,
+					enabled = false,
 					default_brackets = { '(', ')', '{', '}', '[', ']' },
 				}
 			},

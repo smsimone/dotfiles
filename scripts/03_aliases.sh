@@ -15,7 +15,7 @@ alias ls='eza'
 alias lg='lazygit'
 alias cd='z'
 alias cat='bat'
-alias upgrade='brew update && brew upgrade && brew cleanup'
+alias upgrade='brew update && brew upgrade --greedy && brew cleanup'
 alias zi='__zoxide_zi'
 
 unset nnvim
