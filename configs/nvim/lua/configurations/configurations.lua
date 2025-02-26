@@ -1,5 +1,5 @@
-vim.o.rnu = true
-vim.o.number = true
+vim.o.rnu = false
+vim.o.number = false
 
 vim.o.clipboard = "unnamedplus"
 vim.o.wrap = false
