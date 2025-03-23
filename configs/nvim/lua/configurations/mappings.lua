@@ -41,6 +41,8 @@ register.setup({
 			s = { "FzfLua lsp_document_symbols", desc = "Document symbols" },
 			S = { "FzfLua lsp_workspace_symbols", desc = "Document symbols" },
 			a = { "FzfLua lsp_code_actions", desc = "Lsp code actions" },
+			d = { "FzfLua lsp_document_diagnostics", desc = "Document diagnostics" },
+			D = { "FzfLua lsp_workspace_diagnostics", desc = "Workspace diagnostics" },
 		},
 		D = {
 			t = { "DBUIToggle", desc = "Toggle DBUI" }
