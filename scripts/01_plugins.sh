@@ -19,10 +19,10 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 zinit load romkatv/zsh-defer
-zsh-defer zinit load zsh-users/zsh-autosuggestions
-zsh-defer zinit load zdharma-continuum/fast-syntax-highlighting
+#zsh-defer zinit load zsh-users/zsh-autosuggestions
+#zsh-defer zinit load zdharma-continuum/fast-syntax-highlighting
 zsh-defer zinit load Aloxaf/fzf-tab
-zsh-defer zinit load zpm-zsh/tmux
+#zsh-defer zinit load zpm-zsh/tmux
 ######## PLUGINS
 
 eval "$(starship init zsh)"
