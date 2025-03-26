@@ -55,7 +55,7 @@ pull_projects() {
 			fi
 			;;
 		\?)
-			echo "Usage: $0 -p path -f folder"
+			echo "Usage: $0 -p process_count -f folder"
 			return 1
 			;;
 		esac

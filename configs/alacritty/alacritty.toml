@@ -1,6 +1,6 @@
 [general]
 live_config_reload=true
-import=["/Users/antlia/.config/alacritty/catppuccin-latte.toml"]
+import=["/Users/simonemasoero/.config/alacritty/catppuccin-mocha.toml"]
 
 [window]
 decorations="Buttonless"

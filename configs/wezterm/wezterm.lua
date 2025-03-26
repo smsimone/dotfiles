@@ -12,7 +12,8 @@ end
 
 
 config.font = wezterm.font_with_fallback({
-	{ family = "MonaspiceNE Nerd Font", weight = "Regular" },
+	-- { family = "MonaspiceNE Nerd Font", weight = "Regular" },
+	{ family = "Maple Mono NF", weight = "Regular" },
 	"Segoe UI Emoji", -- emoji font
 })
 config.font_size = 12
