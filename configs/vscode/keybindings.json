@@ -1,20 +1,2 @@
 [
-    {
-        "key": "shift+cmd+t",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
-    {
-        "key": "cmd+[Comma]",
-        "command": "workbench.action.openSettingsJson"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.quickOpenSelectNext",
-        "when": "isQuickOpen"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.quickOpenSelectPrevious",
-        "when": "isQuickOpen"
-    }
 ]

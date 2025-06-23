@@ -161,6 +161,11 @@ M.serverConfigs.bashls = {}
 M.serverConfigs.marksman = {}
 M.serverConfigs.pylsp = {}
 
+M.serverConfigs.clangd = {
+	cmd = { "/usr/bin/clangd", "--background-index" },
+	root_dir = require('lspconfig').util.root_pattern('compile_commands.json', '.clangd'),
+}
+
 --------------------------------------------------------------------------------
 -- DART
 M.serverConfigs.dart = {

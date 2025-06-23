@@ -64,14 +64,16 @@ local themes = {
 --- Returns the theme based on current system brightness
 --- @return string
 local function get_theme()
+	return themes.dark
+	--
 	-- if the current theme is light, this snippet does not return anything
-	if execute("defaults read -g AppleInterfaceStyle 2>&1 | tr -d '\n'") == 'Dark' then
-		-- vim.o.background = "dark"
-		return themes.dark
-	else
-		-- vim.o.background = "light"
-		return themes.light
-	end
+	-- if execute("defaults read -g AppleInterfaceStyle 2>&1 | tr -d '\n'") == 'Dark' then
+	-- 	-- vim.o.background = "dark"
+	-- 	return themes.dark
+	-- else
+	-- 	-- vim.o.background = "light"
+	-- 	return themes.light
+	-- end
 end
 
 local term_program = execute("echo $TERM_PROGRAM | tr -d '\n'")

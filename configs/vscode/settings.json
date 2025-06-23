@@ -2,8 +2,8 @@
   "window.systemColorTheme": "auto",
   "window.autoDetectColorScheme": true,
   "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.editor.editorActionsLocation": "hidden",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
@@ -199,5 +199,11 @@
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
   },
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "makefile.configureOnOpen": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }

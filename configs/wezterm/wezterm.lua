@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Maple Mono NF", weight = "Regular" },
 	"Segoe UI Emoji", -- emoji font
 })
-config.font_size = 12
+config.font_size = 13
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 
 config.force_reverse_video_cursor = true
