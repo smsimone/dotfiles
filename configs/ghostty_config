@@ -14,7 +14,7 @@ macos-option-as-alt = false
 macos-auto-secure-input = true
 macos-secure-input-indication = true
 window-colorspace = display-p3
-font-family = MonaspiceNE Nerd Font
+font-family = Zenbone Prose
 confirm-close-surface = false
 
 unfocused-split-opacity = 0.7

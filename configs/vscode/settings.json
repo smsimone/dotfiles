@@ -12,8 +12,12 @@
   "catppuccin.italicComments": true,
   "catppuccin.italicKeywords": true,
   "catppuccin.extraBordersEnabled": true,
-  "editor.fontFamily": "Maple Mono NF",
-  "editor.fontSize": 11,
+  "editor.fontFamily": "Zenbones Prose",
+  "editor.letterSpacing": 0.4,
+  "editor.fontSize": 12.5,
+  "terminal.integrated.fontFamily": "Zenbones Slab",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.letterSpacing": 0.5,
   "editor.fontLigatures": false,
   "editor.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
@@ -25,6 +29,12 @@
   "zenMode.hideLineNumbers": false,
   "zenMode.restore": false,
   "zenMode.showTabs": "none",
+  // JAVA FORMATTING
+  "editor.defaultFormatter": "redhat.java",
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.onType.enabled": true,
+  "java.format.enabled": true,
+  "java.format.comments.enabled": true,
   "zenMode.fullScreen": false,
   "zenMode.hideStatusBar": true,
   "zenMode.silentNotifications": false,
@@ -206,4 +216,18 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "zig.zls.enabled": "on",
+  "debug.onTaskErrors": "debugAnyway",
+  "cmake.showConfigureWithDebuggerNotification": false,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "python.analysis.typeCheckingMode": "standard",
+  "[sql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+  },
 }
