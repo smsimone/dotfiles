@@ -19,7 +19,6 @@ local lspToMasonMap = {
 	dockerls = { masonName = "dockerfile-language-server", masonIgnore = false, enabled = true },
 	nil_ls = { masonName = "nil", masonIgnore = false, enabled = false },
 	dart = { masonName = "dart", masonIgnore = true, enabled = false },
-	clangd = { masonName = 'clangd', masonIgnore = false, enabled = true },
 	bashls = { masonName = 'bash-language-server', masonIgnore = false, enabled = true },
 	marksman = { masonName = 'marksman', masonIgnore = false, enabled = true },
 	pylsp = { masonName = 'python-lsp-server', masonIgnore = false, enabled = true },
@@ -160,11 +159,6 @@ M.serverConfigs.nil_ls = {
 M.serverConfigs.bashls = {}
 M.serverConfigs.marksman = {}
 M.serverConfigs.pylsp = {}
-
-M.serverConfigs.clangd = {
-	cmd = { "/usr/bin/clangd", "--background-index" },
-	root_dir = require('lspconfig').util.root_pattern('compile_commands.json', '.clangd'),
-}
 
 --------------------------------------------------------------------------------
 -- DART
